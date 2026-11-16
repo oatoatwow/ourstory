@@ -900,15 +900,22 @@ ${shell}
   function updateBar() {
     const bytes = new Blob([buildHTML(draft)]).size, mb = (bytes / 1048576).toFixed(1), over = bytes > MAX_BYTES * 0.95;
     edBar.innerHTML = `<span class="size ${over ? "over" : ""}">ขนาดสมุด ${mb} / 16 MB${over ? " · เต็มแล้ว ลบหรือเปลี่ยนรูปบางรูป" : ""}</span>
-      ${downloadsNs ? `<button class="sbtn" data-bar="download">ดาวน์โหลดไฟล์</button>` : ""}
+      ${downloadsNs || localMode ? `<button class="sbtn ${localMode ? "primary" : ""}" data-bar="download">${localMode ? "ดาวน์โหลด index.html" : "ดาวน์โหลดไฟล์"}</button>` : ""}
       <button class="sbtn" data-bar="preview">ดูตัวอย่าง</button>
-      <button class="sbtn primary" data-bar="save" ${over || saving ? "disabled" : ""}>${saving ? "กำลังบันทึก…" : "บันทึกสมุด"}</button>
+      ${localMode ? "" : `<button class="sbtn primary" data-bar="save" ${over || saving ? "disabled" : ""}>${saving ? "กำลังบันทึก…" : "บันทึกสมุด"}</button>`}
       <span class="status" id="edStatus"></span>`;
   }
   edBar.addEventListener("click", async e => {
     const b = e.target.closest("[data-bar]"); if (!b) return;
     if (b.dataset.bar === "preview") { data = JSON.parse(JSON.stringify(draft)); unlocked = true; closeEditor(true); render(1); return; }
     if (b.dataset.bar === "download") {
+      if (!/^\d{4}$/.test(draft.code)) { setStatus("รหัสต้องเป็นตัวเลข 4 หลัก"); return; }
+      if (localMode) {
+        const blob = new Blob([buildHTML(draft)], { type: "text/html" }), a = document.createElement("a");
+        a.href = URL.createObjectURL(blob); a.download = "index.html"; document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+        dirty = false; setStatus("ดาวน์โหลดแล้ว เอาไฟล์ไปทับ index.html ใน repo แล้ว git push"); return;
+      }
       try { await downloadsNs.save({ filename: "our-story.html", data: buildHTML(draft) }); }
       catch (err) { if (err && err.code === "unavailable") { downloadsNs = null; updateBar(); } }
       return;
@@ -938,6 +945,12 @@ ${shell}
   window.addEventListener("beforeunload", e => { if (dirty && !saving) { e.preventDefault(); e.returnValue = ""; } });
 
   /* ---------- capabilities ---------- */
+  let localMode = false;
+  const checkLocal = () => {
+    if (window.claude && window.claude.use) return;
+    if (location.hash === "#edit") { localMode = true; document.getElementById("editBtn").hidden = false; }
+  };
+  checkLocal(); window.addEventListener("hashchange", checkLocal);
   (async () => {
     if (!window.claude || !window.claude.use) return;
     try {
