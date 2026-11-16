@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Our Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Pinyon+Script&family=Trirong:wght@300;400&family=Chonburi&family=Anton&family=Abril+Fatface&family=Special+Elite&family=Caveat:wght@500;600&family=Mali:wght@400;500;700&family=Yesteryear&family=Prompt:wght@300;400;500&display=swap" rel="stylesheet">
+<style id="app-style">:root{
+  --accent:#C8322B; --accent-ink:#FFFFFF; --warn:#C8322B;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+body.t-jazz{--desk:#E9DFD2;--desk-ink:#3B2A1E;--desk-muted:#7A6553;--desk-line:#CDBBA6;--desk-btn:#F5EEE5;--desk-panel:#FBF7F1;--accent:#9A5B22;--accent-ink:#fff}
+body.t-collage{--desk:#EFE6D6;--desk-ink:#1F1D2E;--desk-muted:#6E675F;--desk-line:#D3C7B2;--desk-btn:#FBF6EC;--desk-panel:#FBF6EC;--accent:#C8322B;--accent-ink:#fff}
+body.t-neon{--desk:#EFE4D8;--desk-ink:#3B2C2A;--desk-muted:#8A7570;--desk-line:#D6C4B8;--desk-btn:#FBF5F0;--desk-panel:#FBF5F0;--accent:#E0789F;--accent-ink:#fff}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){color-scheme:dark}
+  :root:not([data-theme="light"]) body.t-jazz{--desk:#0E0906;--desk-ink:#EADBC4;--desk-muted:#9C8569;--desk-line:#3A2B1F;--desk-btn:#1B130D;--desk-panel:#160F0A;--accent:#E3C48C;--accent-ink:#1B120C;--warn:#F0A35C}
+  :root:not([data-theme="light"]) body.t-collage{--desk:#14131A;--desk-ink:#EFE6D6;--desk-muted:#9A927F;--desk-line:#3A3744;--desk-btn:#201E28;--desk-panel:#1A1821;--accent:#E8B64B;--accent-ink:#17161C;--warn:#F08A7A}
+  :root:not([data-theme="light"]) body.t-neon{--desk:#15100F;--desk-ink:#F2E6DF;--desk-muted:#9C8882;--desk-line:#3D302D;--desk-btn:#221B19;--desk-panel:#1B1514;--accent:#F9A8C9;--accent-ink:#2C1F1C;--warn:#F08A7A}
+}
+:root[data-theme="dark"]{color-scheme:dark}
+:root[data-theme="dark"] body.t-jazz{--desk:#0E0906;--desk-ink:#EADBC4;--desk-muted:#9C8569;--desk-line:#3A2B1F;--desk-btn:#1B130D;--desk-panel:#160F0A;--accent:#E3C48C;--accent-ink:#1B120C;--warn:#F0A35C}
+:root[data-theme="dark"] body.t-collage{--desk:#14131A;--desk-ink:#EFE6D6;--desk-muted:#9A927F;--desk-line:#3A3744;--desk-btn:#201E28;--desk-panel:#1A1821;--accent:#E8B64B;--accent-ink:#17161C;--warn:#F08A7A}
+:root[data-theme="dark"] body.t-neon{--desk:#15100F;--desk-ink:#F2E6DF;--desk-muted:#9C8882;--desk-line:#3D302D;--desk-btn:#221B19;--desk-panel:#1B1514;--accent:#F9A8C9;--accent-ink:#2C1F1C;--warn:#F08A7A}
+*,*::before,*::after{box-sizing:inherit}
+html,body{height:100%}
+body{margin:0;background:var(--desk);color:var(--desk-ink);font-size:16px;line-height:1.6;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;overflow:hidden;padding:16px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.book{position:relative;width:min(92vw, calc((100vh - 140px) / 1.42), 440px);aspect-ratio:1/1.42;perspective:2400px;flex:0 0 auto}
+@supports (height:100dvh){ .book{width:min(92vw, calc((100dvh - 140px) / 1.42), 440px)} }
+.stack{position:absolute;inset:0}
+.page{position:absolute;inset:0;overflow:hidden;transform-origin:left center;transition:transform 1.1s cubic-bezier(.3,.7,.2,1);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;cursor:pointer}
+.page.turned{transform:rotateY(-178deg)}
+.pad{position:absolute;inset:0;display:flex;flex-direction:column;z-index:3}
+.corner{position:absolute;z-index:4}
+.tl{top:16px;left:26px}.tr{top:16px;right:18px;text-align:right}.bl{bottom:14px;left:26px;right:60px}.br{bottom:14px;right:18px;text-align:right}
+.topmid{position:absolute;top:16px;left:0;right:0;text-align:center;z-index:3}
+.cover{cursor:default}
+.lockbox{position:absolute;left:0;right:0;bottom:46px;text-align:center;z-index:5}
+.code{display:flex;gap:12px;justify-content:center;margin:8px 0 4px}
+.code input{width:2.1rem;height:2.5rem;text-align:center;font-size:22px;border-radius:0}
+.err{min-height:1.4em;font-size:12px}
+.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.counter{justify-content:center;align-items:center;text-align:center}
+.hms{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hms div{display:flex;flex-direction:column;align-items:center}
+.opts{display:grid;gap:8px;margin-top:12px}
+.opt{text-align:left;padding:.55em .9em;cursor:pointer}
+.opt.wrong{animation:shake .4s}
+.qmsg{min-height:1.5em;margin-top:10px;font-size:12px}
+.letter{white-space:pre-wrap;overflow:auto}
+.caret{display:inline-block;width:1.5px;height:1.1em;vertical-align:-3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.ending{justify-content:center;align-items:center;text-align:center}
+.controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}
+.nbtn{background:var(--desk-btn);border:1px solid var(--desk-line);color:var(--desk-ink);padding:.4em 1.2em;cursor:pointer;font-size:14px}
+.nbtn:disabled{opacity:.35;cursor:default}
+#count{font-size:14px;color:var(--desk-muted);min-width:84px;text-align:center}
+.tip{font-size:12px;color:var(--desk-muted);margin:0;text-align:center}
+#editBtn{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.theme-pick{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+.theme-pick label{flex:1 1 150px;border:2px solid var(--desk-line);border-radius:8px;padding:10px 12px;cursor:pointer;display:flex;gap:10px;align-items:center;background:var(--desk-btn)}
+.theme-pick label.on{border-color:var(--accent)}
+.theme-pick input{margin:0}
+.theme-pick .sw{width:34px;height:46px;border-radius:3px;flex:0 0 auto;display:grid;place-items:center;font-size:16px}
+.theme-pick b{display:block;font-size:14px;font-weight:600}
+.theme-pick small{display:block;font-size:12px;color:var(--desk-muted);line-height:1.4}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+body.t-editorial{--desk:#F4E9EC;--desk-ink:#3B2E33;--desk-muted:#8A777E;--desk-line:#DCC8CF;--desk-btn:#FCF7F8;--desk-panel:#FCF7F8;--accent:#E88FB0;--accent-ink:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body.t-editorial{--desk:#17121A;--desk-ink:#F3E7EC;--desk-muted:#9E8A93;--desk-line:#3D3038;--desk-btn:#241C24;--desk-panel:#1C161E;--accent:#F7A8C3;--accent-ink:#2A1F26;--warn:#F08A7A}}
+:root[data-theme="dark"] body.t-editorial{--desk:#17121A;--desk-ink:#F3E7EC;--desk-muted:#9E8A93;--desk-line:#3D3038;--desk-btn:#241C24;--desk-panel:#1C161E;--accent:#F7A8C3;--accent-ink:#2A1F26;--warn:#F08A7A}
+/* photo grid pages (several photos on one page) */
+.grid{position:absolute;inset:0;display:grid;gap:3px;z-index:0}
+.grid>div{position:relative;overflow:hidden;background:#555}
+.grid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.grid.g2{grid-template-rows:1fr 1fr}
+.grid.g3{grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr}.grid.g3>div:first-child{grid-row:1/3}
+.grid.g4{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+.grid.g5{grid-template-columns:1fr 1fr 1fr;grid-template-rows:1.1fr 1fr}.grid.g5>div:nth-child(1){grid-column:1/3}.grid.g5>div:nth-child(2){grid-column:3}
+.grid.g6{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr 1fr}
+.gc{position:absolute;left:8%;right:8%;top:50%;transform:translateY(-50%);z-index:3;text-align:center}
+body.t-collage .grid{gap:6px;padding:6px;background:#fff}
+body.t-collage .grid>div{background:#D8D2C5}
+body.t-collage .gc .ransom{font-size:clamp(34px,10vw,52px)}
+body.t-collage .gc .hand{display:block;font-size:clamp(20px,6vw,28px);color:#2B2E6B;background:rgba(255,255,255,.85);padding:2px 10px;margin:0 auto 6px;width:max-content;max-width:100%;transform:rotate(-2deg)}
+body.t-jazz .grid{background:#1B120C}
+body.t-jazz .gc .serif{font-size:clamp(40px,12vw,60px);display:block;text-shadow:0 2px 16px rgba(0,0,0,.7)}
+body.t-jazz .gc .script{font-size:clamp(26px,8vw,38px);display:block;margin-top:-.2em}
+body.t-neon .gc .neon.big{font-size:clamp(44px,13vw,66px);display:block;transform:rotate(-6deg)}
+body.t-neon .gc .neon.sub{font-size:clamp(26px,7.5vw,36px);display:block;margin-top:-.15em;transform:rotate(-6deg)}
+
+/* jazz */
+body.t-jazz{font-family:"Trirong","Playfair Display",Georgia,serif}
+body.t-jazz .serif{font-family:"Playfair Display",Georgia,serif;font-weight:400;line-height:.9;letter-spacing:-.01em;color:#E3C48C}
+body.t-jazz .script{font-family:"Pinyon Script",cursive;color:#F2E6CF;line-height:1;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+body.t-jazz .th-display{font-family:"Chonburi","Playfair Display",serif;color:#F2E6CF;line-height:1.4;font-weight:400}
+body.t-jazz .cap{font-family:"Playfair Display",serif;font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:#B49C7C;line-height:1.5}
+body.t-jazz .th{font-family:"Trirong",serif;font-weight:300;color:#F2E6CF}
+body.t-jazz .pno{font-family:"Playfair Display",serif;font-size:9px;letter-spacing:.32em;color:#B49C7C}
+body.t-jazz .stack{border-radius:3px 10px 10px 3px;box-shadow:3px 3px 0 -1px #2A1C13,3px 3px 0 0 #000,6px 6px 0 -1px #2A1C13,6px 6px 0 0 #000,0 24px 50px rgba(20,8,0,.45)}
+body.t-jazz .page{background:#1B120C;color:#F2E6CF;border-radius:3px 10px 10px 3px;box-shadow:inset 18px 0 22px -14px rgba(0,0,0,.8)}
+body.t-jazz .pad{padding:30px 26px 30px 34px}
+body.t-jazz .film{position:absolute;inset:0;background-color:#2a1a10;overflow:hidden;
+  background-image:radial-gradient(circle at 18% 72%, rgba(255,196,120,.85) 0 2.2%, transparent 3.2%),radial-gradient(circle at 30% 80%, rgba(255,180,100,.55) 0 3.5%, transparent 5%),radial-gradient(circle at 74% 30%, rgba(255,210,150,.6) 0 1.6%, transparent 2.6%),radial-gradient(circle at 82% 66%, rgba(255,170,90,.5) 0 4%, transparent 6%),radial-gradient(circle at 60% 85%, rgba(255,220,170,.7) 0 1.4%, transparent 2.4%),radial-gradient(ellipse at 55% 40%, #7a4a28 0%, transparent 65%),linear-gradient(180deg,#1f140d,#3a2416 60%,#140c07)}
+body.t-jazz .film img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.22) saturate(1.08) contrast(1.04) brightness(.86)}
+body.t-jazz .film::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.7));pointer-events:none}
+body.t-jazz .film .ph{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);font-size:11px;letter-spacing:.2em;color:rgba(242,230,207,.55);border:1px solid rgba(242,230,207,.3);padding:.3em .9em;white-space:nowrap}
+body.t-jazz .fade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,18,12,.35) 0%,transparent 25%,transparent 45%,rgba(27,18,12,.92) 72%,#1B120C 100%)}
+body.t-jazz .cover .titles{position:absolute;left:0;right:0;top:20%;text-align:center;z-index:2;padding:0 14px}
+body.t-jazz .cover .serif.big{font-size:clamp(60px,20vw,110px)}
+body.t-jazz .cover .script.over{font-size:clamp(30px,9vw,48px);display:block;margin-top:-.3em;transform:rotate(-4deg)}
+body.t-jazz .code input{font-family:"Playfair Display",serif;border:0;border-bottom:1px solid #E3C48C;background:transparent;color:#F2E6CF}
+body.t-jazz .code input:focus{outline:none;border-bottom-width:2px}
+body.t-jazz .gbtn{background:transparent;border:1px solid #E3C48C;color:#E3C48C;padding:.45em 1.8em;font-family:"Playfair Display",serif;font-style:italic;font-size:15px;cursor:pointer;margin-top:6px}
+body.t-jazz .err{color:#F0A35C}
+body.t-jazz .counter .script{font-size:clamp(34px,10vw,46px)}
+body.t-jazz .counter .num{font-size:clamp(84px,26vw,140px);margin:.05em 0 0;font-variant-numeric:lining-nums}
+body.t-jazz .counter .unit{font-family:"Playfair Display",serif;font-style:italic;font-size:26px;color:#F2E6CF;margin:0 0 22px}
+body.t-jazz .hms{gap:22px}
+body.t-jazz .hms b{font-family:"Playfair Display",serif;font-weight:400;font-size:22px;color:#F2E6CF;font-variant-numeric:tabular-nums}
+body.t-jazz .rule{width:40px;border-top:1px solid rgba(227,196,140,.28);margin:22px auto}
+body.t-jazz .mem .film,body.t-jazz .mem .fade{bottom:34%}
+body.t-jazz .mem .words{position:absolute;left:22px;right:18px;top:40%;z-index:2}
+body.t-jazz .mem .serif.big{font-size:clamp(44px,14vw,72px);display:block}
+body.t-jazz .mem .script.over{font-size:clamp(28px,8.5vw,42px);display:block;margin:-.25em 0 0 18%;transform:rotate(-5deg)}
+body.t-jazz .mem .body{position:absolute;left:26px;right:22px;bottom:40px;z-index:2}
+body.t-jazz .mem .th-display{font-size:clamp(16px,4.6vw,19px);margin:0 0 .3em}
+body.t-jazz .mem .th{font-size:clamp(13px,3.7vw,15px);margin:0;line-height:1.75}
+body.t-jazz .list{margin-top:18px}
+body.t-jazz .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px solid rgba(227,196,140,.28)}
+body.t-jazz .row .th{font-size:14px}
+body.t-jazz .row .num{font-family:"Playfair Display",serif;color:#E3C48C;font-size:clamp(26px,8vw,36px);line-height:1;white-space:nowrap}
+body.t-jazz .row .num small{font-family:"Trirong",serif;font-size:13px;color:#B49C7C;margin-left:4px}
+body.t-jazz .opt{border:1px solid rgba(227,196,140,.28);background:transparent;font-family:"Trirong",serif;color:#F2E6CF}
+body.t-jazz .opt.wrong{border-color:#F0A35C}
+body.t-jazz .opt.right{border-color:#E3C48C;background:rgba(227,196,140,.14)}
+body.t-jazz .qmsg{color:#B49C7C}
+body.t-jazz .qq{font-family:"Chonburi",serif;color:#F2E6CF;font-size:17px;margin:.3em 0 0}
+body.t-jazz .letter-head{font-size:clamp(44px,13vw,60px);margin:0 0 6px}
+body.t-jazz .letter{font-family:"Trirong",serif;font-weight:300;font-size:clamp(13px,3.7vw,15.5px);line-height:1.95;color:#F2E6CF}
+body.t-jazz .caret{background:#E3C48C}
+body.t-jazz .ending .script{font-size:clamp(46px,14vw,66px)}
+body.t-jazz .nbtn{font-family:"Trirong",serif;border-radius:2px}
+body.t-jazz #count{font-family:"Playfair Display",serif;font-style:italic}
+/* collage */
+body.t-collage{font-family:"Mali","Caveat",cursive;background-image:radial-gradient(var(--desk-line) .8px,transparent .9px);background-size:18px 18px}
+body.t-collage .hand{font-family:"Caveat",cursive;font-weight:500;line-height:1.05;color:#1F1D2E}
+body.t-collage .hand-th{font-family:"Mali",cursive;color:#1F1D2E;line-height:1.6}
+body.t-collage .type{font-family:"Special Elite","Courier New",monospace;color:#1F1D2E;line-height:1.3}
+body.t-collage .poster{font-family:"Anton",Impact,sans-serif;text-transform:uppercase;letter-spacing:.04em;line-height:1}
+body.t-collage .ransom{display:inline-block;line-height:1;white-space:normal}
+body.t-collage .ransom .l{display:inline-block;padding:.02em .1em;margin:.04em .01em;line-height:1;transform:rotate(var(--r));box-shadow:1px 2px 0 rgba(0,0,0,.18)}
+body.t-collage .ransom .sp{display:inline-block;width:.35em}
+body.t-collage .ransom .r0{font-family:"Anton",sans-serif;background:#2B2E6B;color:#F6EFE1}
+body.t-collage .ransom .r1{font-family:"Abril Fatface",serif;background:#FFFDF7;color:#C8322B}
+body.t-collage .ransom .r2{font-family:"Special Elite",monospace;background:#E8B64B;color:#17161C}
+body.t-collage .ransom .r3{font-family:"Playfair Display",serif;font-style:italic;background:#F6EFE1;color:#3B8EA5;border:1px solid rgba(0,0,0,.12)}
+body.t-collage .ransom .r4{font-family:"Anton",sans-serif;background:#C8322B;color:#F6EFE1;clip-path:polygon(3% 0,97% 4%,100% 92%,94% 100%,4% 97%,0 8%)}
+body.t-collage .ransom .r5{font-family:"Abril Fatface",serif;background:#F3BBC9;color:#2B2E6B}
+body.t-collage .ransom .r6{font-family:"Special Elite",monospace;background:#fff;color:#17161C;border:1px solid rgba(0,0,0,.2)}
+body.t-collage .ransom .r7{font-family:"Anton",sans-serif;background:#3B8EA5;color:#F6EFE1;clip-path:polygon(0 3%,96% 0,100% 96%,5% 100%)}
+body.t-collage .pno{font-family:"Special Elite",monospace;font-size:11px;color:#6E675F}
+body.t-collage .stack{border-radius:3px 8px 8px 3px;box-shadow:3px 3px 0 -1px #F6EFE1,3px 3px 0 0 #C9BBA3,6px 6px 0 -1px #F6EFE1,6px 6px 0 0 #C9BBA3,0 22px 44px rgba(40,30,20,.3)}
+body.t-collage .page{background:#F6EFE1;color:#1F1D2E;border-radius:3px 8px 8px 3px;
+  background-image:linear-gradient(90deg,rgba(0,0,0,.08),transparent 22px),repeating-linear-gradient(0deg,transparent 0 23px,rgba(43,46,107,.08) 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,rgba(43,46,107,.08) 23px 24px)}
+body.t-collage .pad{padding:30px 24px 30px 34px}
+body.t-collage .tl{left:28px}
+body.t-collage .bl{left:28px}
+body.t-collage .tape{position:absolute;width:72px;height:22px;background:rgba(255,241,170,.75);box-shadow:0 1px 2px rgba(0,0,0,.15);z-index:3;background-image:repeating-linear-gradient(90deg,transparent 0 6px,rgba(255,255,255,.35) 6px 8px)}
+body.t-collage .ticket{display:inline-block;background:#F3BBC9;color:#17161C;padding:4px 10px;font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:11px;line-height:1.15;text-align:center;
+  -webkit-mask:radial-gradient(circle at 0 50%,transparent 5px,#000 5.5px) left/51% 100% no-repeat,radial-gradient(circle at 100% 50%,transparent 5px,#000 5.5px) right/51% 100% no-repeat;box-shadow:1px 2px 0 rgba(0,0,0,.15)}
+body.t-collage .ticket.yellow{background:#E8B64B}
+body.t-collage .ticket.blue{background:#CFE6EC}
+body.t-collage .ticket small{display:block;font-family:"Special Elite",monospace;text-transform:none;letter-spacing:0;font-size:10px}
+body.t-collage .sticker{position:absolute;font-size:56px;line-height:1;z-index:4;filter:drop-shadow(1px 3px 2px rgba(0,0,0,.25));pointer-events:none}
+body.t-collage .banner{display:inline-block;background:#C8322B;color:#F6EFE1;padding:6px 14px;font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:11px;transform:rotate(-2deg);box-shadow:2px 3px 0 rgba(0,0,0,.2)}
+body.t-collage .stamp{display:inline-block;border:2px solid #C8322B;color:#C8322B;padding:3px 9px;font-family:"Special Elite",monospace;text-transform:uppercase;font-size:11px;letter-spacing:.1em;transform:rotate(-8deg);opacity:.85;border-radius:3px}
+body.t-collage .arrow{font-family:"Caveat",cursive;font-size:18px;color:#2B2E6B}
+body.t-collage .photo{position:absolute;background:#fff;padding:8px 8px 10px;box-shadow:0 6px 16px rgba(0,0,0,.22);z-index:2;transform:rotate(var(--rot,-2deg))}
+body.t-collage .photo .inner{width:100%;height:100%;background:#D8D2C5;display:grid;place-items:center;overflow:hidden;position:relative}
+body.t-collage .photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.08) contrast(1.03)}
+body.t-collage .photo .ph{font-family:"Special Elite",monospace;font-size:11px;color:#6E675F;letter-spacing:.1em;border:1px dashed #9A927F;padding:.3em .8em;background:rgba(255,255,255,.6)}
+body.t-collage .cover .photo{left:12%;right:12%;top:12%;height:40%;--rot:-3deg}
+body.t-collage .cover .photo.has{left:6%;right:6%;top:9%;height:46%}
+body.t-collage .cover .titles{position:absolute;left:10px;right:10px;top:54%;text-align:center;z-index:3}
+body.t-collage .cover .ransom{font-size:clamp(40px,12.5vw,66px)}
+body.t-collage .cover .hand.sub{display:block;font-size:clamp(24px,7.5vw,36px);margin-top:4px;transform:rotate(-3deg);color:#2B2E6B}
+body.t-collage .lockbox{bottom:44px}
+body.t-collage .lockbox .ticket{font-size:11px;margin-bottom:6px}
+body.t-collage .code{gap:10px}
+body.t-collage .code input{font-family:"Special Elite",monospace;border:1.5px solid #1F1D2E;background:#fff;color:#1F1D2E;border-radius:2px;transform:rotate(-1deg)}
+body.t-collage .code input:nth-child(even){transform:rotate(1.5deg)}
+body.t-collage .code input:focus{outline:none;border-color:#C8322B;box-shadow:2px 2px 0 #C8322B}
+body.t-collage .gbtn{background:#2B2E6B;color:#F6EFE1;border:0;padding:.45em 1.6em;font-family:"Anton",sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:13px;cursor:pointer;margin-top:6px;box-shadow:3px 3px 0 #C8322B}
+body.t-collage .err{color:#C8322B;font-family:"Mali",cursive;font-size:13px}
+body.t-collage .counter .hand{font-size:clamp(30px,9vw,42px);transform:rotate(-2deg);color:#2B2E6B}
+body.t-collage .counter .ransom{font-size:clamp(70px,22vw,116px);margin:.12em 0 .05em}
+body.t-collage .counter .poster{font-size:22px;color:#C8322B;margin:0 0 20px}
+body.t-collage .hms{gap:10px}
+body.t-collage .hms .ticket{min-width:72px}
+body.t-collage .hms b{display:block;font-family:"Anton",sans-serif;font-size:20px;font-weight:400;font-variant-numeric:tabular-nums}
+body.t-collage .mem .photo{left:6%;right:10%;top:7%;height:46%}
+body.t-collage .mem.odd .photo{--rot:2deg;left:10%;right:6%}
+body.t-collage .mem .words{position:absolute;left:18px;right:14px;top:55%;z-index:3}
+body.t-collage .mem .ransom{font-size:clamp(34px,10.5vw,54px)}
+body.t-collage .mem .hand.sub{display:block;font-size:clamp(22px,6.5vw,30px);margin:2px 0 0 10%;transform:rotate(-4deg);color:#C8322B}
+body.t-collage .mem .body{position:absolute;left:28px;right:20px;bottom:36px;z-index:3}
+body.t-collage .mem .th-title{font-family:"Mali",cursive;font-weight:700;font-size:clamp(15px,4.4vw,18px);margin:0 0 .2em;color:#2B2E6B}
+body.t-collage .mem .th{font-family:"Mali",cursive;font-size:clamp(13px,3.7vw,15px);margin:0;line-height:1.6;color:#1F1D2E}
+body.t-collage .mem .sticker{left:-6px;bottom:52%;transform:rotate(-12deg)}
+body.t-collage .mem.odd .sticker{left:auto;right:-4px;transform:rotate(14deg)}
+body.t-collage .list{margin-top:14px;display:grid;gap:10px}
+body.t-collage .row{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#fff;padding:8px 12px;border:1px solid rgba(0,0,0,.15);box-shadow:2px 3px 0 rgba(0,0,0,.12);transform:rotate(var(--r,0))}
+body.t-collage .row:nth-child(odd){--r:-1deg}
+body.t-collage .row:nth-child(even){--r:1deg}
+body.t-collage .row .th{font-family:"Mali",cursive;font-size:14px}
+body.t-collage .row .num{font-family:"Anton",sans-serif;font-size:clamp(24px,7vw,32px);line-height:1;white-space:nowrap;color:#C8322B}
+body.t-collage .row .num small{font-family:"Mali",cursive;font-size:12px;color:#6E675F;margin-left:4px}
+body.t-collage .note-pad{background:#FFF4A8;padding:16px 16px 18px;box-shadow:2px 4px 10px rgba(0,0,0,.2);transform:rotate(-1deg);margin-top:12px}
+body.t-collage .opt{border:1.5px solid #1F1D2E;background:#fff;font-family:"Mali",cursive;color:#1F1D2E;box-shadow:2px 2px 0 #1F1D2E}
+body.t-collage .opt.wrong{border-color:#C8322B}
+body.t-collage .opt.right{background:#E8B64B}
+body.t-collage .qmsg{color:#6E675F;font-family:"Mali",cursive;font-size:13px}
+body.t-collage .qq{font-family:"Mali",cursive;font-weight:700;font-size:16px;margin:.2em 0 0}
+body.t-collage .letter-page{background-image:linear-gradient(90deg,rgba(0,0,0,.08),transparent 22px),repeating-linear-gradient(transparent 0 27px,rgba(59,142,165,.35) 27px 28px);background-position:0 8px}
+body.t-collage .letter-head{font-size:clamp(40px,12vw,56px);margin:0 0 6px;color:#2B2E6B;transform:rotate(-2deg);display:inline-block;align-self:flex-start}
+body.t-collage .letter{font-family:"Mali",cursive;font-size:clamp(13px,3.7vw,15px);line-height:28px;color:#1F1D2E}
+body.t-collage .caret{background:#C8322B}
+body.t-collage .ending .ransom{font-size:clamp(34px,10vw,52px)}
+body.t-collage .nbtn{border:1.5px solid var(--desk-ink);font-family:"Mali",cursive;box-shadow:2px 2px 0 var(--desk-ink)}
+body.t-collage #editBtn{box-shadow:2px 2px 0 var(--desk-ink)}
+body.t-collage #count{font-family:"Special Elite",monospace;font-size:13px}
+/* neon */
+body.t-neon{font-family:"Prompt",system-ui,sans-serif}
+body.t-neon .neon{font-family:"Yesteryear",cursive;color:#F9A8C9;line-height:1;font-weight:400;text-shadow:0 0 2px rgba(255,255,255,.5),0 0 14px rgba(249,168,201,.7),0 0 34px rgba(249,168,201,.4),0 2px 6px rgba(0,0,0,.35)}
+body.t-neon .neon.white{color:#FFF8F2;text-shadow:0 0 10px rgba(255,255,255,.45),0 2px 8px rgba(0,0,0,.45)}
+body.t-neon .small{font-family:"Prompt",sans-serif;font-weight:300;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,248,242,.75);text-shadow:0 1px 4px rgba(0,0,0,.5)}
+body.t-neon .th{font-family:"Prompt",sans-serif;font-weight:300;color:#FFF8F2;text-shadow:0 1px 6px rgba(0,0,0,.55)}
+body.t-neon .pno{font-family:"Prompt",sans-serif;font-weight:300;font-size:11px;letter-spacing:.14em;color:rgba(255,248,242,.75)}
+body.t-neon .stack{border-radius:4px 14px 14px 4px;box-shadow:3px 3px 0 -1px #3b2a26,3px 3px 0 0 #1a1211,6px 6px 0 -1px #3b2a26,6px 6px 0 0 #1a1211,0 24px 50px rgba(40,20,15,.4)}
+body.t-neon .page{background:#2C1F1C;color:#FFF8F2;border-radius:4px 14px 14px 4px}
+body.t-neon .pad{padding:30px 24px 30px 30px}
+body.t-neon .tl{left:24px}
+body.t-neon .bl{left:24px}
+body.t-neon .film{position:absolute;inset:0;overflow:hidden;background:radial-gradient(ellipse at 30% 25%,rgba(255,214,170,.55),transparent 55%),radial-gradient(ellipse at 75% 70%,rgba(214,130,90,.45),transparent 55%),linear-gradient(180deg,#C9A27E 0%,#9A6A52 45%,#4A2F2A 100%)}
+body.t-neon .film img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.02) brightness(.96)}
+body.t-neon .film .ph{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);font-size:11px;letter-spacing:.2em;color:rgba(255,248,242,.7);border:1px solid rgba(255,248,242,.4);padding:.3em .9em;white-space:nowrap;font-weight:300}
+body.t-neon .fade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(44,31,28,.35) 0%,transparent 22%,transparent 50%,rgba(44,31,28,.55) 72%,rgba(44,31,28,.92) 100%)}
+body.t-neon .page.plain .film{background:radial-gradient(ellipse at 20% 15%,rgba(249,168,201,.28),transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(255,190,140,.3),transparent 55%),linear-gradient(180deg,#4A302B,#2C1F1C 70%)}
+body.t-neon .vignette{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.45));pointer-events:none}
+body.t-neon .cover .titles{position:absolute;left:10px;right:10px;top:38%;text-align:center;z-index:3}
+body.t-neon .cover .neon.big{font-size:clamp(64px,19vw,100px);display:block;transform:rotate(-6deg)}
+body.t-neon .cover .neon.sub{font-size:clamp(28px,8vw,40px);display:block;margin:-.1em 0 0 30%;transform:rotate(-6deg)}
+body.t-neon .lockbox{bottom:44px}
+body.t-neon .code{gap:14px}
+body.t-neon .code input{font-family:"Prompt",sans-serif;font-weight:300;border:0;border-bottom:1px solid rgba(255,248,242,.7);background:transparent;color:#FFF8F2}
+body.t-neon .code input:focus{outline:none;border-bottom:2px solid #F9A8C9;box-shadow:0 6px 14px -8px #F9A8C9}
+body.t-neon .gbtn{border:1px solid rgba(255,248,242,.7);color:#FFF8F2;padding:.45em 1.8em;font-family:"Prompt",sans-serif;font-weight:300;letter-spacing:.12em;text-transform:uppercase;font-size:11px;cursor:pointer;margin-top:8px;border-radius:999px;backdrop-filter:blur(6px);background:rgba(44,31,28,.25)}
+body.t-neon .err{color:#F9A8C9;font-weight:300}
+body.t-neon .counter .neon.sub{font-size:clamp(32px,9vw,44px);transform:rotate(-5deg)}
+body.t-neon .counter .neon.num{font-size:clamp(90px,27vw,140px);margin:.05em 0 0}
+body.t-neon .counter .unit{font-family:"Yesteryear",cursive;font-size:30px;color:#FFF8F2;margin:-.1em 0 24px;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+body.t-neon .hms{gap:26px}
+body.t-neon .hms b{font-family:"Prompt",sans-serif;font-weight:300;font-size:22px;color:#FFF8F2;font-variant-numeric:tabular-nums}
+body.t-neon .mem .words{position:absolute;left:14px;right:14px;top:40%;z-index:3}
+body.t-neon .mem .neon.big{font-size:clamp(50px,15vw,78px);display:block;transform:rotate(-6deg);padding-left:4%}
+body.t-neon .mem .neon.sub{font-size:clamp(26px,7.5vw,38px);display:block;margin:-.15em 0 0 42%;transform:rotate(-6deg)}
+body.t-neon .mem .body{position:absolute;left:24px;right:22px;bottom:38px;z-index:3}
+body.t-neon .mem .th-title{font-family:"Prompt",sans-serif;font-weight:400;font-size:clamp(15px,4.4vw,18px);margin:0 0 .25em;color:#FFF8F2;text-shadow:0 1px 6px rgba(0,0,0,.55)}
+body.t-neon .mem .th{font-size:clamp(12.5px,3.6vw,14.5px);margin:0;line-height:1.7}
+body.t-neon .list{margin-top:18px}
+body.t-neon .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,248,242,.18)}
+body.t-neon .row .th{font-size:13.5px;text-shadow:none}
+body.t-neon .row .num{font-family:"Yesteryear",cursive;font-size:clamp(28px,8vw,38px);line-height:1;white-space:nowrap;color:#F9A8C9;text-shadow:0 0 12px rgba(249,168,201,.7)}
+body.t-neon .row .num small{font-family:"Prompt",sans-serif;font-weight:300;font-size:12px;color:rgba(255,248,242,.75);margin-left:5px;text-shadow:none}
+body.t-neon .opt{border:1px solid rgba(255,248,242,.35);background:rgba(255,248,242,.06);font-family:"Prompt",sans-serif;font-weight:300;color:#FFF8F2;border-radius:10px}
+body.t-neon .opt.wrong{border-color:#F08A7A}
+body.t-neon .opt.right{border-color:#F9A8C9;background:rgba(249,168,201,.22);box-shadow:0 0 14px rgba(249,168,201,.35)}
+body.t-neon .qmsg{color:rgba(255,248,242,.75);font-weight:300}
+body.t-neon .qq{font-family:"Prompt",sans-serif;font-weight:400;font-size:16px;margin:.3em 0 0;color:#FFF8F2}
+body.t-neon .letter-head{font-size:clamp(44px,13vw,60px);margin:0 0 8px;transform:rotate(-5deg);display:inline-block;align-self:flex-start}
+body.t-neon .letter{font-family:"Prompt",sans-serif;font-weight:300;font-size:clamp(12.5px,3.6vw,14.5px);line-height:1.95;color:#FFF8F2}
+body.t-neon .caret{background:#F9A8C9;box-shadow:0 0 8px #F9A8C9}
+body.t-neon .ending .neon{font-size:clamp(46px,14vw,66px);transform:rotate(-5deg)}
+body.t-neon .nbtn{font-family:"Prompt",sans-serif;font-weight:300;border-radius:999px}
+body.t-neon #count{font-family:"Yesteryear",cursive;font-size:18px}
+/* editorial */
+body.t-editorial{font-family:"Prompt",system-ui,sans-serif}
+body.t-editorial .ser{font-family:"Playfair Display",Georgia,serif;font-weight:500;color:#fff;line-height:.95;letter-spacing:-.01em;text-shadow:0 2px 14px rgba(0,0,0,.45)}
+body.t-editorial .ser i{font-style:italic;font-weight:400}
+body.t-editorial .pk{font-family:"Pinyon Script",cursive;color:#F7A8C3;line-height:1;font-weight:400;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+body.t-editorial .chip{display:inline-block;background:#F7A8C3;color:#fff;font-family:"Prompt",sans-serif;font-weight:500;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:2px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+body.t-editorial .handle{font-family:"Prompt",sans-serif;font-weight:300;font-size:10px;color:rgba(255,255,255,.85);text-shadow:0 1px 4px rgba(0,0,0,.5)}
+body.t-editorial .th{font-family:"Prompt",sans-serif;font-weight:300;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.55)}
+body.t-editorial .pno{font-family:"Prompt",sans-serif;font-weight:300;font-size:10px;color:rgba(255,255,255,.85)}
+body.t-editorial .stack{border-radius:4px 14px 14px 4px;box-shadow:3px 3px 0 -1px #5a4a48,3px 3px 0 0 #2a2020,6px 6px 0 -1px #5a4a48,6px 6px 0 0 #2a2020,0 24px 50px rgba(40,25,30,.4)}
+body.t-editorial .page{background:#6B5A5E;color:#fff;border-radius:4px 14px 14px 4px}
+body.t-editorial .pad{padding:30px 24px 30px 30px}
+body.t-editorial .tl{left:24px}
+body.t-editorial .bl{left:24px}
+body.t-editorial .film{position:absolute;inset:0;overflow:hidden;background:radial-gradient(ellipse at 30% 20%,rgba(255,220,230,.6),transparent 55%),radial-gradient(ellipse at 80% 80%,rgba(250,180,200,.4),transparent 55%),linear-gradient(180deg,#C9B4B8 0%,#8E7A80 50%,#4D3F44 100%)}
+body.t-editorial .film img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.95) contrast(1.02) brightness(.92)}
+body.t-editorial .film .ph{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.45);padding:.3em .9em;white-space:nowrap;font-weight:300}
+body.t-editorial .fade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(40,30,35,.35) 0%,transparent 25%,transparent 50%,rgba(40,30,35,.55) 75%,rgba(40,30,35,.9) 100%)}
+body.t-editorial .page.plain .film{background:radial-gradient(ellipse at 20% 15%,rgba(247,168,195,.35),transparent 50%),radial-gradient(ellipse at 85% 85%,rgba(255,235,225,.25),transparent 55%),linear-gradient(180deg,#7E6A70,#4D3F44 70%)}
+body.t-editorial .cover .titles{position:absolute;left:14px;right:14px;top:34%;text-align:center;z-index:3}
+body.t-editorial .cover .ser.big{font-size:clamp(54px,16vw,86px);display:block}
+body.t-editorial .cover .pk.sub{font-size:clamp(34px,10vw,50px);display:block;margin-top:-.15em;transform:rotate(-3deg)}
+body.t-editorial .cover .chip{margin-top:10px}
+body.t-editorial .lockbox{bottom:44px}
+body.t-editorial .code{gap:14px}
+body.t-editorial .code input{font-family:"Playfair Display",serif;border:0;border-bottom:1px solid rgba(255,255,255,.75);background:transparent;color:#fff}
+body.t-editorial .code input:focus{outline:none;border-bottom:2px solid #F7A8C3}
+body.t-editorial .gbtn{background:#F7A8C3;border:0;color:#fff;padding:.5em 1.8em;font-family:"Prompt",sans-serif;font-weight:500;letter-spacing:.1em;text-transform:uppercase;font-size:11px;cursor:pointer;margin-top:8px;border-radius:2px;box-shadow:0 2px 10px rgba(0,0,0,.3)}
+body.t-editorial .err{color:#F7A8C3}
+body.t-editorial .counter .pk{font-size:clamp(34px,10vw,46px);transform:rotate(-3deg)}
+body.t-editorial .counter .ser.num{font-size:clamp(90px,27vw,140px);margin:.05em 0 0}
+body.t-editorial .counter .unit{font-family:"Playfair Display",serif;font-style:italic;font-size:26px;color:#fff;margin:0 0 22px}
+body.t-editorial .hms{gap:22px}
+body.t-editorial .hms b{font-family:"Playfair Display",serif;font-weight:400;font-size:22px;color:#fff;font-variant-numeric:tabular-nums}
+body.t-editorial .mem .words{position:absolute;left:16px;right:16px;top:38%;z-index:3;text-align:center}
+body.t-editorial .mem .ser.big{font-size:clamp(42px,13vw,66px);display:block}
+body.t-editorial .mem .pk.sub{font-size:clamp(30px,9vw,44px);display:block;margin-top:-.2em;transform:rotate(-3deg)}
+body.t-editorial .mem .body{position:absolute;left:22px;right:22px;bottom:34px;z-index:3;text-align:center}
+body.t-editorial .mem .th-title{font-family:"Playfair Display",serif;font-style:italic;font-weight:400;font-size:clamp(15px,4.4vw,18px);margin:0 0 .25em;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.55)}
+body.t-editorial .mem .th{font-size:clamp(12px,3.5vw,14px);margin:0;line-height:1.7}
+body.t-editorial .mem .body .chip{margin-top:10px}
+body.t-editorial .gc .ser{font-size:clamp(30px,9vw,46px)}
+body.t-editorial .gc .pk{font-size:clamp(28px,8vw,40px);display:block;margin-top:-.15em}
+body.t-editorial .list{margin-top:18px}
+body.t-editorial .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.2)}
+body.t-editorial .row .th{font-size:13.5px;text-shadow:none}
+body.t-editorial .row .num{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(28px,8vw,38px);line-height:1;white-space:nowrap;color:#F7A8C3}
+body.t-editorial .row .num small{font-family:"Prompt",sans-serif;font-weight:300;font-size:12px;color:rgba(255,255,255,.8);margin-left:5px}
+body.t-editorial .opt{border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);font-family:"Prompt",sans-serif;font-weight:300;color:#fff;border-radius:2px}
+body.t-editorial .opt.wrong{border-color:#F7A8C3}
+body.t-editorial .opt.right{background:#F7A8C3;border-color:#F7A8C3;color:#fff}
+body.t-editorial .qmsg{color:rgba(255,255,255,.8);font-weight:300}
+body.t-editorial .qq{font-family:"Playfair Display",serif;font-style:italic;font-size:17px;margin:.3em 0 0;color:#fff}
+body.t-editorial .letter-head{font-size:clamp(44px,13vw,60px);margin:0 0 8px;transform:rotate(-3deg);display:inline-block;align-self:flex-start}
+body.t-editorial .letter{font-family:"Prompt",sans-serif;font-weight:300;font-size:clamp(12.5px,3.6vw,14.5px);line-height:1.95;color:#fff}
+body.t-editorial .caret{background:#F7A8C3}
+body.t-editorial .ending .ser{font-size:clamp(40px,12vw,58px)}
+body.t-editorial .ending .pk{font-size:clamp(34px,10vw,48px);display:block;margin-top:-.1em}
+body.t-editorial .nbtn{font-family:"Prompt",sans-serif;font-weight:300;border-radius:2px}
+body.t-editorial #count{font-family:"Playfair Display",serif;font-style:italic;font-size:15px}
+#editor,.ed-bar{font-family:"Prompt",system-ui,sans-serif}
+/* ---------- editor ---------- */
+#editor{position:fixed;inset:0;z-index:100;background:var(--desk-panel);color:var(--desk-ink);overflow:auto;-webkit-overflow-scrolling:touch;
+  padding:calc(env(safe-area-inset-top,0px) + 0px) 0 calc(env(safe-area-inset-bottom,0px) + 90px)}
+#editor[hidden]{display:none}
+.ed-head{position:sticky;top:0;z-index:2;background:var(--desk-panel);border-bottom:1px solid var(--desk-line);padding:14px 18px;display:flex;align-items:center;gap:12px}
+.ed-head h2{margin:0;font-weight:600;font-size:19px;flex:1}
+.ed-wrap{max-width:640px;margin:0 auto;padding:8px 18px}
+.ed-sec{padding:22px 0;border-bottom:1px solid var(--desk-line)}
+.ed-sec h3{font-weight:600;font-size:16px;margin:0 0 4px}
+.ed-sec>p{margin:0 0 14px;font-size:14px;color:var(--desk-muted)}
+.f{display:block;margin-bottom:12px}
+.f span{display:block;font-size:13px;color:var(--desk-muted);margin-bottom:3px}
+.f input,.f textarea,.f select{width:100%;font:inherit;font-size:16px;padding:.5em .7em;border:1px solid var(--desk-line);background:var(--desk-btn);color:var(--desk-ink);border-radius:4px}
+.f textarea{min-height:90px;resize:vertical;line-height:1.7}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}
+.mcard{border:1px solid var(--desk-line);border-radius:6px;padding:14px;margin-bottom:14px;background:var(--desk-btn)}
+.mcard-top{display:flex;gap:14px;align-items:flex-start;margin-bottom:12px}
+.thumb{width:96px;aspect-ratio:3/4;flex:0 0 auto;border-radius:4px;background:#D8D2C5 center/cover no-repeat;display:grid;place-items:center;color:#6E675F;font-size:11px;text-align:center;padding:4px}
+.mcard-act{display:flex;flex-direction:column;gap:6px;flex:1}
+.mcard-act .row2{display:flex;gap:6px;flex-wrap:wrap}
+.sbtn{background:var(--desk-panel);border:1px solid var(--desk-line);color:var(--desk-ink);padding:.3em .8em;font-size:13px;cursor:pointer;border-radius:3px}
+.sbtn.danger{color:var(--warn);border-color:var(--warn)}
+.sbtn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.pick{position:relative;overflow:hidden}
+.pick input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.qcard{border:1px solid var(--desk-line);border-radius:6px;padding:14px;margin-bottom:12px}
+.ed-bar{position:fixed;left:0;right:0;bottom:0;z-index:101;background:var(--desk-panel);border-top:1px solid var(--desk-line);
+  padding:12px 18px calc(env(safe-area-inset-bottom,0px) + 12px);display:flex;gap:10px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+.ed-bar[hidden]{display:none}
+.size{flex:1;font-size:12px;color:var(--desk-muted);min-width:140px}
+.size.over{color:var(--warn)}
+.status{font-size:13px;color:var(--desk-muted);width:100%;text-align:right;min-height:1.2em}
+@media (max-width:480px){.grid3{grid-template-columns:1fr 1fr}.grid3 .f:first-child{grid-column:1/-1}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.thumbs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.thumbs .t{position:relative;width:72px;aspect-ratio:3/4;border-radius:4px;background:#D8D2C5 center/cover no-repeat;border:1px solid var(--desk-line)}
+.thumbs .t.main::after{content:"หลัก";position:absolute;left:4px;top:4px;font-size:10px;background:var(--accent);color:var(--accent-ink);padding:1px 5px;border-radius:2px}
+.thumbs .t button{position:absolute;right:-6px;top:-6px;width:22px;height:22px;border-radius:50%;border:0;background:var(--warn);color:#fff;font-size:12px;line-height:22px;padding:0;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="book" id="book"><div class="stack" aria-hidden="true"></div></div>
+<div class="controls">
+  <button class="nbtn" id="prev" aria-label="หน้าก่อนหน้า">ย้อนกลับ</button>
+  <span id="count" aria-live="polite"></span>
+  <button class="nbtn" id="next" aria-label="หน้าถัดไป">หน้าถัดไป</button>
+  <button class="nbtn" id="editBtn" hidden>แก้ไขสมุด</button>
+</div>
+<p class="tip">แตะขอบขวาเพื่อพลิกไปข้างหน้า แตะขอบซ้ายเพื่อย้อนกลับ หรือปัดก็ได้</p>
+<div id="editor" hidden></div>
+<div class="ed-bar" id="edBar" hidden></div>
+<script id="book-data" type="application/json">{"theme": "collage", "start": "2024-02-14", "code": "1402", "hint": "ตัวอย่างนี้ รหัสคือ 1402", "cover": {"photo": "", "pos": "center", "title": "Our Story", "script": "just the two of us", "vol": "Vol. 01", "years": "2024 — 2026"}, "moments": [{"pos": "center", "date": "14.02.2024", "place": "Bangkok", "big": "Day One", "script": "coffee & us", "title": "เดตแรกของเรา", "note": "วันนั้นตื่นเต้นจนลืมกินเค้กที่สั่งมา จำได้ไหม เธอเป็นคนกินแทนให้หมดเลย", "photos": []}, {"pos": "center", "date": "13.04.2024", "place": "Silom", "big": "Songkran", "script": "first splash", "title": "สงกรานต์ครั้งแรกด้วยกัน", "note": "เธอบอกว่าจะไม่เล่นน้ำ แล้วก็เปียกกว่าเราอีก", "photos": []}, {"pos": "center", "date": "20.10.2024", "place": "Chiang Mai", "big": "Cold Nights", "script": "warm hands", "title": "ทริปเชียงใหม่", "note": "หนาวมาก แต่มือเธออุ่นกว่าเสื้อกันหนาวทุกตัว", "photos": []}, {"pos": "center", "date": "14.02.2025", "place": "Home", "big": "One Year", "script": "and counting", "title": "ครบรอบ 1 ปี", "note": "ปีแรกผ่านไปเร็วมาก ขอให้ปีต่อๆ ไปช้าลงหน่อยนะ", "photos": []}, {"pos": "center", "date": "09.08.2026", "place": "Hua Hin", "big": "Sunset", "script": "by the sea", "title": "ทะเลหัวหิน", "note": "รูปนี้ถ่ายไป 47 รอบ กว่าจะได้รูปที่เธอยอมให้ลง", "photos": []}], "numbers": [{"label": "รูปที่ถ่ายด้วยกัน", "value": "1,284", "unit": "รูป"}, {"label": "ไปกินชาบูด้วยกัน", "value": "23", "unit": "ครั้ง"}, {"label": "ทริปต่างจังหวัด", "value": "6", "unit": "ทริป"}, {"label": "ทะเลาะกัน / ง้อสำเร็จ", "value": "4/4", "unit": ""}], "quiz": [{"q": "เดตแรกของเราไปที่ไหน", "opts": ["ร้านชาบู", "คาเฟ่", "ดูหนัง"], "a": 1}, {"q": "ทริปต่างจังหวัดทริปแรกของเราคือที่ไหน", "opts": ["หัวหิน", "เชียงใหม่", "เขาใหญ่"], "a": 1}, {"q": "สิ่งที่เธอพูดบ่อยที่สุดคืออะไร", "opts": ["คิดถึงนะ", "ง่วงแล้ว", "กินอะไรดี"], "a": 2}], "letter": "ขอบคุณที่อยู่ด้วยกันมาตลอด\nทั้งวันที่ดีและวันที่เหนื่อย\nขอบคุณที่ยังหัวเราะกับมุกเดิมๆ\nและยังถามว่า “กินอะไรดี” ทุกวัน\n\nสุขสันต์วันครบรอบนะ\nปีหน้าขอเป็นคนตอบคำถามนั้น\nให้เธอต่อไปเรื่อยๆ\n\nรักนะ"}</script>
+<script id="app-script">
+(function () {
+  const SAVED = JSON.parse(document.getElementById("book-data").textContent);
+  const migrate = d => { (d.moments || []).forEach(m => { if (!Array.isArray(m.photos)) m.photos = m.photo ? [m.photo] : []; delete m.photo; }); if (!d.theme) d.theme = "neon"; return d; };
+  let data = migrate(JSON.parse(JSON.stringify(SAVED)));
+  const MAX_BYTES = 16 * 1024 * 1024;
+
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const THEMES = {
+    jazz: { name: "Midnight Jazz", desc: "โทนมืด แสงอุ่น ตัวอักษรสีทอง", sw: "🎷", bg: "#1B120C" },
+    collage: { name: "NYC Scrapbook", desc: "ตัดปะ สติกเกอร์ เทปกาว สดใส", sw: "🗽", bg: "#F6EFE1" },
+    neon: { name: "Pink Neon", desc: "รูปเต็มหน้า ตัวสคริปต์ชมพูเรืองแสง", sw: "🌆", bg: "#2C1F1C" },
+    editorial: { name: "Soft Editorial", desc: "รูปเต็มหน้า ขาวเซอริฟผสมชมพู ป้ายชมพู แบบโพสต์ IG", sw: "🎀", bg: "#6B5A5E" }
+  };
+  const gridHTML = (photos, pos) => `<div class="grid g${Math.min(photos.length, 6)}">${photos.slice(0, 6).map((p, i) => `<div>${imgTag(p, i === 0 ? pos : "center")}</div>`).join("")}</div>`;
+  const codeInputs = () => [1,2,3,4].map(n => `<input inputmode="numeric" maxlength="1" aria-label="รหัสหลักที่ ${n}">`).join("");
+  const ransom = (text) => `<span class="ransom">${[...String(text ?? "")].map((ch, i) => {
+    if (ch === " ") return `<span class="sp"></span>`;
+    const h = (ch.charCodeAt(0) * 31 + i * 7) % 8, rot = ((h * 5) % 11) - 5;
+    const c = /[a-z]/i.test(ch) ? (h % 3 === 1 ? ch.toLowerCase() : ch.toUpperCase()) : ch;
+    return `<span class="l r${h}" style="--r:${rot}deg">${esc(c)}</span>`;
+  }).join("")}</span>`;
+  const STICKERS = ["🚕", "🍕", "🗽", "🎟️", "☕", "🚇", "🍎", "🥨", "🎷", "🌃"];
+  const imgTag = (photo, pos) => `<img src="${photo}" alt="" style="object-position:${esc(pos || "center")}">`;
+  const sinceText = (d, month) => new Date(d.start + "T00:00:00").toLocaleDateString("en-GB", { day: "numeric", month, year: "numeric" });
+
+  const TPL = {
+    jazz(d) {
+      const film = (photo, pos, ph) => `<div class="film">${photo ? imgTag(photo, pos) : `<span class="ph">${ph}</span>`}</div><div class="fade"></div>`;
+      const pages = [];
+      pages.push(`<div class="page cover" data-type="cover">${film(d.cover.photo, d.cover.pos, "ใส่รูปคู่ของคุณตรงนี้")}
+        <div class="topmid cap">Our little book</div>
+        <div class="corner tl cap">${esc(d.cover.vol)}<br>${esc(d.cover.years)}</div>
+        <div class="corner tr cap">Made for you<br>with love</div>
+        <div class="titles"><span class="serif big">${esc(d.cover.title)}</span><span class="script over">${esc(d.cover.script)}</span></div>
+        <div class="lockbox"><div class="cap">ใส่รหัสเพื่อเปิดสมุด</div><div class="code" id="code">${codeInputs()}</div><div class="err" id="err" role="status"></div><button class="gbtn" id="unlock">Open the book</button></div>
+        <div class="corner bl th" style="font-size:11px;color:#B49C7C">${esc(d.hint)}</div></div>`);
+      pages.push(`<div class="page"><div class="pad counter"><span class="script">together for</span><p class="serif num" id="days">0</p><p class="unit">days</p>
+        <div class="hms"><div><b id="h">0</b><span class="cap">hours</span></div><div><b id="m">0</b><span class="cap">minutes</span></div><div><b id="s">0</b><span class="cap">seconds</span></div></div>
+        <div class="rule"></div><span class="cap">since ${esc(sinceText(d, "long"))}</span></div></div>`);
+      d.moments.forEach((mo, i) => pages.push(mo.photos.length > 1
+        ? `<div class="page mem">${gridHTML(mo.photos, mo.pos)}<div class="fade" style="bottom:0"></div>
+          <div class="corner tl cap">Chapter ${String(i + 1).padStart(2, "0")}</div><div class="corner tr cap">${esc(mo.date)}<br>${esc(mo.place)}</div>
+          <div class="gc"><span class="serif">${esc(mo.big)}</span><span class="script">${esc(mo.script)}</span></div>
+          <div class="body"><p class="th-display">${esc(mo.title)}</p><p class="th">${esc(mo.note)}</p></div></div>`
+        : `<div class="page mem">${film(mo.photos[0], mo.pos, "รูปของคุณตรงนี้")}
+        <div class="corner tl cap">Chapter ${String(i + 1).padStart(2, "0")}</div>
+        <div class="corner tr cap">${esc(mo.date)}<br>${esc(mo.place)}</div>
+        <div class="words"><span class="serif big">${esc(mo.big)}</span><span class="script over">${esc(mo.script)}</span></div>
+        <div class="body"><p class="th-display">${esc(mo.title)}</p><p class="th">${esc(mo.note)}</p></div></div>`));
+      pages.push(`<div class="page"><div class="pad"><span class="cap">Our year in numbers</span><span class="serif" style="font-size:clamp(46px,14vw,64px);margin-top:10px">In Numbers</span>
+        <div class="list">${numRows(d)}</div></div></div>`);
+      pages.push(`<div class="page" data-type="quiz"><div class="pad"><span class="cap">A little test</span><span class="serif" style="font-size:clamp(46px,14vw,64px);margin-top:10px">Do you<br>remember?</span>
+        <p class="th" style="font-size:13px;color:#B49C7C;margin:12px 0 6px">ตอบให้ครบ ${d.quiz.length} ข้อ ถึงจะพลิกไปหน้าถัดไปได้</p><div id="quizBox"></div></div></div>`);
+      pages.push(`<div class="page" data-type="letter"><div class="pad"><span class="script letter-head">Dear you,</span><div class="letter" id="letterBox"></div></div></div>`);
+      pages.push(`<div class="page"><div class="pad ending"><span class="script">to be continued</span><div class="rule"></div><p class="th" style="margin:0">หน้าต่อจากนี้ ไว้มาเขียนด้วยกันนะ</p></div></div>`);
+      return { pages, qlabel: "cap", done: `<span class="script" style="font-size:40px;display:block;margin-top:14px">well done</span>` };
+    },
+    collage(d) {
+      const photoBox = (photo, pos, ph) => `<div class="photo ${photo ? "has" : ""}"><div class="inner">${photo ? imgTag(photo, pos) : `<span class="ph">${ph}</span>`}</div></div>`;
+      const pages = [];
+      pages.push(`<div class="page cover" data-type="cover">
+        <div class="corner tl"><span class="banner">${esc(d.cover.vol)} &middot; ${esc(d.cover.years)}</span></div>
+        <span class="sticker" style="right:-6px;top:-4px;transform:rotate(12deg)">🚕</span>
+        ${photoBox(d.cover.photo, d.cover.pos, "ใส่รูปคู่ของคุณตรงนี้")}
+        <span class="tape" style="left:8%;top:10%;transform:rotate(-30deg)"></span><span class="tape" style="right:8%;top:10%;transform:rotate(28deg)"></span>
+        <div class="titles">${ransom(d.cover.title)}<span class="hand sub">${esc(d.cover.script)}</span></div>
+        <span class="sticker" style="left:-8px;bottom:120px;transform:rotate(-10deg);font-size:64px">🗽</span>
+        <div class="lockbox"><span class="ticket">Admit one<small>ใส่รหัสเพื่อเปิดสมุด</small></span><div class="code" id="code">${codeInputs()}</div><div class="err" id="err" role="status"></div><button class="gbtn" id="unlock">Open the book</button></div>
+        <div class="corner bl hand-th" style="font-size:11px;color:#6E675F">${esc(d.hint)}</div></div>`);
+      pages.push(`<div class="page"><div class="pad counter"><span class="hand">together for</span><div id="daysWrap">${ransom("0")}</div><p class="poster">days</p>
+        <div class="hms"><span class="ticket yellow"><b id="h">0</b>hours</span><span class="ticket"><b id="m">0</b>min</span><span class="ticket blue"><b id="s">0</b>sec</span></div>
+        <p class="type" style="font-size:12px;margin:22px 0 0">since ${esc(sinceText(d, "short"))}</p>
+        <span class="sticker" style="right:10px;bottom:30px;transform:rotate(10deg)">☕</span></div></div>`);
+      d.moments.forEach((mo, i) => pages.push(mo.photos.length > 1
+        ? `<div class="page mem">${gridHTML(mo.photos, mo.pos)}
+          <div class="corner tl"><span class="ticket ${i % 2 ? "blue" : "yellow"}">Chapter ${String(i + 1).padStart(2, "0")}<small>${esc(mo.date)}</small></span></div>
+          <span class="tape" style="left:40%;top:-6px;transform:rotate(-4deg)"></span>
+          <div class="gc"><span class="hand">${esc(mo.place)} &middot; ${esc(mo.title)}</span>${ransom(mo.big)}<span class="hand" style="margin-top:6px;color:#C8322B">${esc(mo.script)}</span></div>
+          <span class="sticker" style="right:-4px;bottom:16px;transform:rotate(14deg)">${STICKERS[i % STICKERS.length]}</span></div>`
+        : `<div class="page mem ${i % 2 ? "odd" : ""}">
+        <div class="corner tl"><span class="ticket ${i % 2 ? "blue" : "yellow"}">Chapter ${String(i + 1).padStart(2, "0")}<small>${esc(mo.date)}</small></span></div>
+        <div class="corner tr hand" style="font-size:18px;color:#2B2E6B;max-width:45%">${esc(mo.place)}<br><span class="arrow">↘</span></div>
+        ${photoBox(mo.photos[0], mo.pos, "รูปของคุณตรงนี้")}
+        <span class="tape" style="left:${i % 2 ? 60 : 10}%;top:5%;transform:rotate(${i % 2 ? 25 : -25}deg)"></span>
+        <span class="sticker">${STICKERS[i % STICKERS.length]}</span>
+        <div class="words">${ransom(mo.big)}<span class="hand sub">${esc(mo.script)}</span></div>
+        <div class="body"><p class="th-title">${esc(mo.title)}</p><p class="th">${esc(mo.note)}</p></div></div>`));
+      pages.push(`<div class="page"><div class="pad"><span class="banner" style="align-self:flex-start">Our year</span><div style="margin-top:12px">${ransom("In Numbers")}</div>
+        <div class="list">${numRows(d)}</div><span class="sticker" style="right:4px;bottom:24px;transform:rotate(12deg)">🍕</span></div></div>`);
+      pages.push(`<div class="page" data-type="quiz"><div class="pad"><span class="stamp" style="align-self:flex-start">Pop quiz</span><div style="margin-top:10px">${ransom("Do you remember?")}</div>
+        <div class="note-pad"><p class="hand-th" style="font-size:13px;margin:0 0 6px;color:#6E675F">ตอบให้ครบ ${d.quiz.length} ข้อ ถึงจะพลิกไปหน้าถัดไปได้</p><div id="quizBox"></div></div></div></div>`);
+      pages.push(`<div class="page letter-page" data-type="letter"><div class="pad"><span class="hand letter-head">Dear you,</span><div class="letter" id="letterBox"></div><span class="sticker" style="right:8px;bottom:20px;font-size:44px;transform:rotate(10deg)">🎟️</span></div></div>`);
+      pages.push(`<div class="page"><div class="pad ending">${ransom("To be continued")}<p class="hand" style="font-size:26px;margin:18px 0 0;transform:rotate(-2deg);color:#2B2E6B">หน้าต่อจากนี้ ไว้มาเขียนด้วยกันนะ</p><span class="stamp" style="margin-top:22px">NYC &rarr; forever</span></div></div>`);
+      return { pages, qlabel: "type", done: `<div style="margin-top:8px">${ransom("Well done")}</div>` };
+    },
+    neon(d) {
+      const film = (photo, pos, ph) => `<div class="film">${photo ? imgTag(photo, pos) : `<span class="ph">${ph}</span>`}</div><div class="fade"></div><div class="vignette"></div>`;
+      const plain = `<div class="film"></div><div class="vignette"></div>`;
+      const pages = [];
+      pages.push(`<div class="page cover" data-type="cover">${film(d.cover.photo, d.cover.pos, "ใส่รูปคู่ของคุณตรงนี้")}
+        <div class="corner tl small">${esc(d.cover.vol)}<br>${esc(d.cover.years)}</div><div class="corner tr small">made for you<br>with love</div>
+        <div class="titles"><span class="neon big">${esc(d.cover.title)}</span><span class="neon white sub">${esc(d.cover.script)}</span></div>
+        <div class="lockbox"><div class="small">ใส่รหัสเพื่อเปิดสมุด</div><div class="code" id="code">${codeInputs()}</div><div class="err" id="err" role="status"></div><button class="gbtn" id="unlock">Open the book</button></div>
+        <div class="corner bl th" style="font-size:11px;opacity:.8">${esc(d.hint)}</div></div>`);
+      pages.push(`<div class="page plain">${plain}<div class="pad counter"><span class="neon white sub">together for</span><p class="neon num" id="days">0</p><p class="unit">days</p>
+        <div class="hms"><div><b id="h">0</b><span class="small">hours</span></div><div><b id="m">0</b><span class="small">minutes</span></div><div><b id="s">0</b><span class="small">seconds</span></div></div>
+        <p class="small" style="margin:26px 0 0">since ${esc(sinceText(d, "long"))}</p></div></div>`);
+      d.moments.forEach((mo, i) => pages.push(mo.photos.length > 1
+        ? `<div class="page mem">${gridHTML(mo.photos, mo.pos)}<div class="fade"></div>
+          <div class="corner tl small">Chapter ${String(i + 1).padStart(2, "0")}</div><div class="corner tr small">${esc(mo.date)}<br>${esc(mo.place)}</div>
+          <div class="gc"><span class="neon big">${esc(mo.big)}</span><span class="neon white sub">${esc(mo.script)}</span></div>
+          <div class="body"><p class="th-title">${esc(mo.title)}</p><p class="th">${esc(mo.note)}</p></div></div>`
+        : `<div class="page mem">${film(mo.photos[0], mo.pos, "รูปของคุณตรงนี้")}
+        <div class="corner tl small">Chapter ${String(i + 1).padStart(2, "0")}</div><div class="corner tr small">${esc(mo.date)}<br>${esc(mo.place)}</div>
+        <div class="words"><span class="neon big">${esc(mo.big)}</span><span class="neon white sub">${esc(mo.script)}</span></div>
+        <div class="body"><p class="th-title">${esc(mo.title)}</p><p class="th">${esc(mo.note)}</p></div></div>`));
+      pages.push(`<div class="page plain">${plain}<div class="pad"><span class="small">our year in numbers</span><span class="neon" style="font-size:clamp(50px,15vw,70px);margin-top:10px;transform:rotate(-5deg);display:inline-block;align-self:flex-start">In Numbers</span>
+        <div class="list">${numRows(d)}</div></div></div>`);
+      pages.push(`<div class="page plain" data-type="quiz">${plain}<div class="pad"><span class="small">a little test</span><span class="neon" style="font-size:clamp(46px,14vw,64px);margin-top:10px;transform:rotate(-5deg);display:inline-block;align-self:flex-start">Do you<br>remember?</span>
+        <p class="th" style="font-size:12px;margin:14px 0 4px;opacity:.8">ตอบให้ครบ ${d.quiz.length} ข้อ ถึงจะพลิกไปหน้าถัดไปได้</p><div id="quizBox"></div></div></div>`);
+      pages.push(`<div class="page plain" data-type="letter">${plain}<div class="pad"><span class="neon letter-head">Dear you,</span><div class="letter" id="letterBox"></div></div></div>`);
+      pages.push(`<div class="page plain">${plain}<div class="pad ending"><span class="neon">to be continued</span><p class="th" style="font-size:14px;margin:26px 0 0">หน้าต่อจากนี้ ไว้มาเขียนด้วยกันนะ</p></div></div>`);
+      return { pages, qlabel: "small", done: `<span class="neon" style="font-size:44px;display:inline-block;margin-top:14px;transform:rotate(-5deg)">well done</span>` };
+    }
+    ,editorial(d) {
+      const film = (photo, pos, ph) => `<div class="film">${photo ? imgTag(photo, pos) : `<span class="ph">${ph}</span>`}</div><div class="fade"></div>`;
+      const plain = `<div class="film"></div>`;
+      const handle = esc(d.cover.vol);
+      const pages = [];
+      pages.push(`<div class="page cover" data-type="cover">${film(d.cover.photo, d.cover.pos, "ใส่รูปคู่ของคุณตรงนี้")}
+        <div class="corner tl handle">${handle}</div><div class="corner tr handle">${esc(d.cover.years)}</div>
+        <div class="titles"><span class="ser big">${esc(d.cover.title)}</span><span class="pk sub">${esc(d.cover.script)}</span><span class="chip">our little book</span></div>
+        <div class="lockbox"><div class="handle">ใส่รหัสเพื่อเปิดสมุด</div><div class="code" id="code">${codeInputs()}</div><div class="err" id="err" role="status"></div><button class="gbtn" id="unlock">Open the book</button></div>
+        <div class="corner bl th" style="font-size:11px;opacity:.85">${esc(d.hint)}</div></div>`);
+      pages.push(`<div class="page plain">${plain}<div class="pad counter"><span class="pk">together for</span><p class="ser num" id="days">0</p><p class="unit">days</p>
+        <div class="hms"><div><b id="h">0</b><span class="handle">hours</span></div><div><b id="m">0</b><span class="handle">minutes</span></div><div><b id="s">0</b><span class="handle">seconds</span></div></div>
+        <span class="chip" style="margin-top:26px">since ${esc(sinceText(d, "long"))}</span></div></div>`);
+      d.moments.forEach((mo, i) => pages.push(mo.photos.length > 1
+        ? `<div class="page mem">${gridHTML(mo.photos, mo.pos)}<div class="fade"></div>
+          <div class="corner tl handle">${handle}</div><div class="corner tr handle">${esc(mo.date)}</div>
+          <div class="gc"><span class="ser">${esc(mo.big)}</span><span class="pk">${esc(mo.script)}</span></div>
+          <div class="body"><p class="th-title">${esc(mo.title)}</p><p class="th">${esc(mo.note)}</p><span class="chip">${esc(mo.place)}</span></div></div>`
+        : `<div class="page mem">${film(mo.photos[0], mo.pos, "รูปของคุณตรงนี้")}
+        <div class="corner tl handle">${handle}</div><div class="corner tr handle">${esc(mo.date)}</div>
+        <div class="words"><span class="ser big">${esc(mo.big)}</span><span class="pk sub">${esc(mo.script)}</span></div>
+        <div class="body"><p class="th-title">${esc(mo.title)}</p><p class="th">${esc(mo.note)}</p><span class="chip">${esc(mo.place)}</span></div></div>`));
+      pages.push(`<div class="page plain">${plain}<div class="pad"><span class="chip" style="align-self:flex-start">our year</span><span class="ser" style="font-size:clamp(46px,14vw,64px);margin-top:12px">In <i>Numbers</i></span>
+        <div class="list">${numRows(d)}</div></div></div>`);
+      pages.push(`<div class="page plain" data-type="quiz">${plain}<div class="pad"><span class="chip" style="align-self:flex-start">a little test</span><span class="ser" style="font-size:clamp(44px,13vw,60px);margin-top:12px">Do you<br><i>remember?</i></span>
+        <p class="th" style="font-size:12px;margin:14px 0 4px;opacity:.85">ตอบให้ครบ ${d.quiz.length} ข้อ ถึงจะพลิกไปหน้าถัดไปได้</p><div id="quizBox"></div></div></div>`);
+      pages.push(`<div class="page plain" data-type="letter">${plain}<div class="pad"><span class="pk letter-head">Dear you,</span><div class="letter" id="letterBox"></div></div></div>`);
+      pages.push(`<div class="page plain">${plain}<div class="pad ending"><span class="ser">to be</span><span class="pk">continued</span><p class="th" style="font-size:14px;margin:26px 0 0">หน้าต่อจากนี้ ไว้มาเขียนด้วยกันนะ</p></div></div>`);
+      return { pages, qlabel: "handle", done: `<span class="pk" style="font-size:44px;display:inline-block;margin-top:14px;transform:rotate(-3deg)">well done</span>` };
+    }
+  };
+  const numRows = d => d.numbers.filter(n => n.label || n.value).map(n => `<div class="row"><span class="th">${esc(n.label)}</span><span class="num">${esc(n.value)}${n.unit ? `<small>${esc(n.unit)}</small>` : ""}</span></div>`).join("");
+  let cur_tpl = null;
+  function applyTheme(t) { document.body.className = "t-" + (THEMES[t] ? t : "neon"); }
+
+  /* ---------- book rendering ---------- */
+  const book = document.getElementById("book");
+  let pageEls = [], N = 0, cur = 0, unlocked = false, quizDone = false, letterTyped = false, timer = null, typeTimer = null;
+
+  function render(keepPage) {
+    clearInterval(typeTimer);
+    book.querySelectorAll(".page").forEach(p => p.remove());
+    const d = data;
+    applyTheme(d.theme);
+    cur_tpl = TPL[THEMES[d.theme] ? d.theme : "neon"](d);
+    const pages = cur_tpl.pages;
+    N = pages.length;
+    pages.forEach((html, i) => {
+      book.insertAdjacentHTML("beforeend", html);
+      const el = book.lastElementChild;
+      el.style.zIndex = N - i;
+      if (i > 0) el.insertAdjacentHTML("beforeend", `<span class="corner br pno">${String(i).padStart(2, "0")}</span>`);
+      el.addEventListener("click", e => {
+        if (e.target.closest("button,input,a")) return;
+        const r = el.getBoundingClientRect();
+        (e.clientX - r.left > r.width / 2) ? next() : prev();
+      });
+    });
+    pageEls = [...book.querySelectorAll(".page")];
+    quizDone = data.quiz.length === 0; letterTyped = false; qi = 0;
+    setupLock(); renderQ(); tick();
+    cur = 0;
+    const target = Math.min(keepPage || 0, N - 1);
+    for (let i = 0; i < target; i++) pageEls[i].classList.add("turned");
+    cur = target;
+    update();
+  }
+
+  /* ---------- navigation ---------- */
+  const prevBtn = document.getElementById("prev"), nextBtn = document.getElementById("next");
+  function canNext() {
+    if (cur >= N - 1) return false;
+    if (cur === 0 && !unlocked) return false;
+    if (pageEls[cur].dataset.type === "quiz" && !quizDone) return false;
+    return true;
+  }
+  function update() {
+    prevBtn.disabled = cur === 0;
+    nextBtn.disabled = !canNext();
+    document.getElementById("count").textContent = cur === 0 ? "cover" : `page ${cur} of ${N - 1}`;
+    if (pageEls[cur].dataset.type === "letter" && !letterTyped) { letterTyped = true; setTimeout(typeLetter, 700); }
+  }
+  function next() { if (!canNext()) { nudge(); return; } pageEls[cur].classList.add("turned"); cur++; update(); }
+  function prev() { if (cur === 0) return; cur--; pageEls[cur].classList.remove("turned"); update(); }
+  function nudge() { const p = pageEls[cur]; p.classList.remove("shake"); void p.offsetWidth; p.classList.add("shake"); }
+  prevBtn.onclick = prev; nextBtn.onclick = next;
+  document.addEventListener("keydown", e => {
+    if (!document.getElementById("editor").hidden) return;
+    if (e.target.tagName === "INPUT") return;
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+  });
+  let sx = null;
+  book.addEventListener("touchstart", e => { sx = e.touches[0].clientX; }, { passive: true });
+  book.addEventListener("touchend", e => {
+    if (sx === null) return;
+    const dx = e.changedTouches[0].clientX - sx; sx = null;
+    if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
+  });
+
+  /* ---------- lock ---------- */
+  function setupLock() {
+    const inputs = [...document.querySelectorAll("#code input")];
+    const tryUnlock = () => {
+      if (unlocked) { next(); return; }
+      if (inputs.map(x => x.value).join("") === String(data.code)) {
+        unlocked = true; inputs.forEach(x => x.blur());
+        document.getElementById("err").textContent = "";
+        setTimeout(next, 250);
+      } else {
+        const c = document.getElementById("code");
+        c.classList.remove("shake"); void c.offsetWidth; c.classList.add("shake");
+        document.getElementById("err").textContent = "ยังไม่ใช่ ลองนึกถึงวันสำคัญของเราดูนะ";
+        inputs.forEach(x => x.value = ""); inputs[0].focus();
+      }
+    };
+    inputs.forEach((el, i) => {
+      el.addEventListener("input", () => {
+        el.value = el.value.replace(/\D/g, "");
+        if (el.value && inputs[i + 1]) inputs[i + 1].focus();
+        if (inputs.every(x => x.value)) tryUnlock();
+      });
+      el.addEventListener("keydown", e => {
+        if (e.key === "Backspace" && !el.value && inputs[i - 1]) inputs[i - 1].focus();
+        if (e.key === "Enter") tryUnlock();
+      });
+    });
+    document.getElementById("unlock").onclick = tryUnlock;
+  }
+
+  /* ---------- counter ---------- */
+  function tick() {
+    const el = document.getElementById("days") || document.getElementById("daysWrap"); if (!el) return;
+    let d = Math.max(0, Date.now() - new Date(data.start + "T00:00:00").getTime());
+    const days = Math.floor(d / 864e5); d -= days * 864e5;
+    const h = Math.floor(d / 36e5); d -= h * 36e5;
+    const m = Math.floor(d / 6e4); d -= m * 6e4;
+    const txt = days.toLocaleString("en-US");
+    if (el.id === "daysWrap") { if (el.dataset.v !== txt) { el.dataset.v = txt; el.innerHTML = ransom(txt); } } else el.textContent = txt;
+    document.getElementById("h").textContent = h;
+    document.getElementById("m").textContent = m;
+    document.getElementById("s").textContent = Math.floor(d / 1e3);
+  }
+  timer = setInterval(tick, 1000);
+
+  /* ---------- quiz ---------- */
+  let qi = 0;
+  function renderQ() {
+    const box = document.getElementById("quizBox");
+    if (!data.quiz.length) { box.innerHTML = ""; return; }
+    const item = data.quiz[qi];
+    box.innerHTML = `<div class="${cur_tpl.qlabel}" style="font-size:11px">Question ${qi + 1} of ${data.quiz.length}</div>
+      <p class="qq">${esc(item.q)}</p><div class="opts"></div><div class="qmsg" role="status"></div>`;
+    const opts = box.querySelector(".opts"), msg = box.querySelector(".qmsg");
+    item.opts.forEach((t, i) => {
+      if (!t) return;
+      const b = document.createElement("button");
+      b.className = "opt"; b.textContent = t;
+      b.onclick = () => {
+        if (i === Number(item.a)) {
+          b.classList.add("right"); msg.textContent = "ถูกต้อง";
+          setTimeout(() => { qi++; qi < data.quiz.length ? renderQ() : finishQuiz(); }, 700);
+        } else {
+          b.classList.remove("wrong"); void b.offsetWidth; b.classList.add("wrong");
+          msg.textContent = "ไม่ใช่นะ ลองใหม่อีกที";
+        }
+      };
+      opts.appendChild(b);
+    });
+  }
+  function finishQuiz() {
+    quizDone = true;
+    document.getElementById("quizBox").innerHTML = `${cur_tpl.done}<p class="th" style="margin:.5em 0 0;font-size:13px">พลิกหน้าถัดไปได้เลย มีจดหมายรออยู่</p>`;
+    update();
+  }
+
+  /* ---------- letter ---------- */
+  function typeLetter() {
+    const box = document.getElementById("letterBox"); box.textContent = "";
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { box.textContent = data.letter; return; }
+    const text = document.createTextNode(""), caret = document.createElement("span");
+    caret.className = "caret"; box.append(text, caret);
+    const chars = [...data.letter]; let i = 0;
+    clearInterval(typeTimer);
+    typeTimer = setInterval(() => { if (i >= chars.length) { clearInterval(typeTimer); caret.remove(); return; } text.data += chars[i++]; }, 45);
+  }
+
+  /* ---------- page source (for saving) ---------- */
+  function buildHTML(d) {
+    const style = document.getElementById("app-style").textContent;
+    const app = document.getElementById("app-script").textContent;
+    const json = JSON.stringify(d).replace(/</g, "\\u003c");
+    const shell = `<div class="book" id="book"><div class="stack" aria-hidden="true"></div></div>
+<div class="controls">
+  <button class="nbtn" id="prev" aria-label="หน้าก่อนหน้า">ย้อนกลับ</button>
+  <span id="count" aria-live="polite"></span>
+  <button class="nbtn" id="next" aria-label="หน้าถัดไป">หน้าถัดไป</button>
+  <button class="nbtn" id="editBtn" hidden>แก้ไขสมุด</button>
+</div>
+<p class="tip">แตะขอบขวาเพื่อพลิกไปข้างหน้า แตะขอบซ้ายเพื่อย้อนกลับ หรือปัดก็ได้</p>
+<div id="editor" hidden></div>
+<div class="ed-bar" id="edBar" hidden></div>`;
+    return `<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>${esc(d.cover.title || "Our Story")}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Pinyon+Script&family=Trirong:wght@300;400&family=Chonburi&family=Anton&family=Abril+Fatface&family=Special+Elite&family=Caveat:wght@500;600&family=Mali:wght@400;500;700&family=Yesteryear&family=Prompt:wght@300;400;500&display=swap" rel="stylesheet">
+<style id="app-style">${style}</style>
+</head>
+<body>
+${shell}
+<script id="book-data" type="application/json">${json}<\/script>
+<script id="app-script">${app}<\/script>
+</body>
+</html>`;
+  }
+
+  /* ---------- photo compression ---------- */
+  async function compress(file) {
+    let src;
+    try { src = await createImageBitmap(file, { imageOrientation: "from-image" }); }
+    catch (_) {
+      src = await new Promise((res, rej) => {
+        const img = new Image(); img.onload = () => res(img); img.onerror = rej;
+        img.src = URL.createObjectURL(file);
+      });
+    }
+    const w = src.width, h = src.height, max = 1400, k = Math.min(1, max / Math.max(w, h));
+    const c = document.createElement("canvas");
+    c.width = Math.round(w * k); c.height = Math.round(h * k);
+    c.getContext("2d").drawImage(src, 0, 0, c.width, c.height);
+    return c.toDataURL("image/jpeg", 0.8);
+  }
+
+  /* ---------- editor ---------- */
+  const editor = document.getElementById("editor"), edBar = document.getElementById("edBar");
+  let draft = null, artifactNs = null, downloadsNs = null;
+
+  const field = (label, path, val, type = "text", extra = "") =>
+    `<label class="f"><span>${label}</span>${type === "textarea"
+      ? `<textarea data-path="${path}" ${extra}>${esc(val)}</textarea>`
+      : `<input type="${type}" data-path="${path}" value="${esc(val)}" ${extra}></label>`}${type === "textarea" ? "</label>" : ""}`;
+  const posSelect = (path, val) => `<label class="f"><span>ส่วนของรูปหลักที่จะโชว์</span><select data-path="${path}">
+      ${[["top", "ด้านบน"], ["center", "ตรงกลาง"], ["bottom", "ด้านล่าง"]].map(([v, t]) => `<option value="${v}" ${val === v ? "selected" : ""}>${t}</option>`).join("")}</select></label>`;
+  const thumb = (photo) => `<div class="thumb" style="${photo ? `background-image:url('${photo}')` : ""}">${photo ? "" : "ยังไม่มีรูป"}</div>`;
+
+  function renderEditor() {
+    const d = draft;
+    editor.innerHTML = `
+      <div class="ed-head"><h2>แก้ไขสมุด</h2><button class="sbtn" data-act="close">ปิด</button></div>
+      <div class="ed-wrap">
+        <section class="ed-sec">
+          <h3>ธีมของสมุด</h3>
+          <p>เลือกได้ทุกเมื่อ รูปและข้อความเหมือนเดิม เปลี่ยนแค่หน้าตา</p>
+          <div class="theme-pick">${Object.entries(THEMES).map(([k, t]) => `<label class="${d.theme === k ? "on" : ""}"><input type="radio" name="theme" value="${k}" data-path="theme" ${d.theme === k ? "checked" : ""}><span class="sw" style="background:${t.bg}">${t.sw}</span><span><b>${t.name}</b><small>${t.desc}</small></span></label>`).join("")}</div>
+        </section>
+        <section class="ed-sec">
+          <h3>ปกและรหัส</h3>
+          <p>รูปปกควรเป็นรูปแนวตั้งที่เห็นหน้าทั้งคู่</p>
+          <div class="mcard"><div class="mcard-top">${thumb(d.cover.photo)}
+            <div class="mcard-act"><span class="sbtn pick primary">เลือกรูปปก<input type="file" accept="image/*" data-photo="cover"></span>
+            ${d.cover.photo ? `<button class="sbtn danger" data-act="rmcover">ลบรูป</button>` : ""}</div></div>
+            ${posSelect("cover.pos", d.cover.pos)}
+          </div>
+          <div class="grid2">${field("ชื่อบนปก", "cover.title", d.cover.title)}${field("คำลายมือบนปก", "cover.script", d.cover.script)}</div>
+          <div class="grid2">${field("มุมซ้ายบน บรรทัด 1", "cover.vol", d.cover.vol)}${field("มุมซ้ายบน บรรทัด 2", "cover.years", d.cover.years)}</div>
+          <div class="grid2">${field("วันที่เริ่มคบกัน (ใช้นับวัน)", "start", d.start, "date")}${field("รหัสเปิดสมุด 4 หลัก", "code", d.code, "text", 'inputmode="numeric" maxlength="4"')}</div>
+          ${field("คำใบ้ใต้ช่องรหัส", "hint", d.hint)}
+        </section>
+
+        <section class="ed-sec">
+          <h3>ความทรงจำ (${d.moments.length} หน้า)</h3>
+          <p>หน้าละหนึ่งรูป เพิ่ม ลบ หรือสลับลำดับได้ ชื่อตอนภาษาอังกฤษสั้นๆ 1–2 คำจะสวยที่สุด</p>
+          ${d.moments.map((mo, i) => `<div class="mcard">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px"><strong>Chapter ${String(i + 1).padStart(2, "0")}</strong>
+              <span style="display:flex;gap:6px"><button class="sbtn" data-act="up" data-i="${i}" ${i === 0 ? "disabled" : ""}>ขึ้น</button><button class="sbtn" data-act="down" data-i="${i}" ${i === d.moments.length - 1 ? "disabled" : ""}>ลง</button><button class="sbtn danger" data-act="del" data-i="${i}">ลบหน้านี้</button></span></div>
+            <div class="thumbs">${mo.photos.map((p, j) => `<div class="t ${j === 0 ? "main" : ""}" style="background-image:url('${p}')"><button type="button" data-act="rmphoto" data-i="${i}" data-j="${j}" aria-label="ลบรูป">×</button></div>`).join("")}</div>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px"><span class="sbtn pick primary">${mo.photos.length ? "เพิ่มรูป" : "เลือกรูป"}<input type="file" accept="image/*" multiple data-photo="${i}"></span>
+              <span style="font-size:12px;color:var(--desk-muted)">${mo.photos.length <= 1 ? "1 รูป = รูปเต็มหน้า · ใส่ 2–6 รูปจะจัดเป็นคอลลาจ" : `${mo.photos.length} รูป · จัดเป็นคอลลาจ (รูปแรกคือรูปหลัก)`}</span></div>
+            ${posSelect(`moments.${i}.pos`, mo.pos)}
+            <div class="grid2">${field("ชื่อตอนตัวใหญ่", `moments.${i}.big`, mo.big)}${field("คำลายมือ", `moments.${i}.script`, mo.script)}</div>
+            <div class="grid2">${field("วันที่", `moments.${i}.date`, mo.date)}${field("สถานที่", `moments.${i}.place`, mo.place)}</div>
+            ${field("หัวข้อภาษาไทย", `moments.${i}.title`, mo.title)}
+            ${field("เรื่องเล่าสั้นๆ", `moments.${i}.note`, mo.note, "textarea", 'rows="3"')}
+          </div>`).join("")}
+          <button class="sbtn primary" data-act="add">เพิ่มความทรงจำ</button>
+        </section>
+
+        <section class="ed-sec">
+          <h3>ตัวเลขของเรา</h3>
+          <p>เว้นว่างแถวที่ไม่ใช้ได้</p>
+          ${d.numbers.map((n, i) => `<div class="grid3">${field("เรื่อง", `numbers.${i}.label`, n.label)}${field("ตัวเลข", `numbers.${i}.value`, n.value)}${field("หน่วย", `numbers.${i}.unit`, n.unit)}</div>`).join("")}
+        </section>
+
+        <section class="ed-sec">
+          <h3>Quiz</h3>
+          <p>เลือกว่าข้อไหนคือคำตอบที่ถูก</p>
+          ${d.quiz.map((q, i) => `<div class="qcard">
+            ${field(`คำถามข้อ ${i + 1}`, `quiz.${i}.q`, q.q)}
+            <div class="grid3" style="grid-template-columns:1fr 1fr 1fr">${q.opts.map((o, j) => field(`ตัวเลือก ${j + 1}`, `quiz.${i}.opts.${j}`, o)).join("")}</div>
+            <label class="f"><span>คำตอบที่ถูก</span><select data-path="quiz.${i}.a" data-num="1">${q.opts.map((o, j) => `<option value="${j}" ${Number(q.a) === j ? "selected" : ""}>ตัวเลือก ${j + 1}</option>`).join("")}</select></label>
+          </div>`).join("")}
+        </section>
+
+        <section class="ed-sec" style="border-bottom:0">
+          <h3>จดหมาย</h3>
+          <p>ขึ้นบรรทัดใหม่ได้ตามที่พิมพ์</p>
+          ${field("ข้อความ", "letter", d.letter, "textarea", 'rows="10"')}
+        </section>
+      </div>`;
+    updateBar();
+  }
+
+  function setPath(obj, path, val) {
+    const keys = path.split("."); let o = obj;
+    keys.slice(0, -1).forEach(k => o = o[k]);
+    o[keys.at(-1)] = val;
+  }
+
+  editor.addEventListener("input", e => {
+    const p = e.target.dataset.path; if (!p || e.target.type === "radio") return;
+    let v = e.target.value;
+    if (e.target.dataset.num) v = Number(v);
+    if (p === "code") { v = v.replace(/\D/g, "").slice(0, 4); e.target.value = v; }
+    setPath(draft, p, v); dirty = true; updateBar();
+  });
+  editor.addEventListener("change", async e => {
+    if (e.target.type === "radio" && e.target.dataset.path === "theme") { draft.theme = e.target.value; dirty = true; editor.querySelectorAll(".theme-pick label").forEach(l => l.classList.toggle("on", l.querySelector("input").value === draft.theme)); return; }
+    if (e.target.dataset.path && e.target.tagName === "SELECT") { setPath(draft, e.target.dataset.path, e.target.dataset.num ? Number(e.target.value) : e.target.value); dirty = true; return; }
+    const which = e.target.dataset.photo; if (which === undefined) return;
+    const files = [...e.target.files]; if (!files.length) return;
+    setStatus("กำลังย่อขนาดรูป…");
+    let failed = 0;
+    for (const file of files) {
+      try {
+        const url = await compress(file);
+        if (which === "cover") draft.cover.photo = url;
+        else { const ph = draft.moments[Number(which)].photos; if (ph.length < 6) ph.push(url); }
+      } catch (_) { failed++; }
+    }
+    dirty = true; setStatus(failed ? `${failed} รูปเปิดไม่ได้ ลองใช้ JPG หรือ PNG` : ""); renderEditor();
+  });
+  editor.addEventListener("click", e => {
+    const b = e.target.closest("[data-act]"); if (!b) return;
+    const i = Number(b.dataset.i), m = draft.moments;
+    switch (b.dataset.act) {
+      case "close": closeEditor(); return;
+      case "rmcover": draft.cover.photo = ""; break;
+      case "up": [m[i - 1], m[i]] = [m[i], m[i - 1]]; break;
+      case "down": [m[i + 1], m[i]] = [m[i], m[i + 1]]; break;
+      case "del": if (!confirm("ลบหน้านี้ออกจากสมุด?")) return; m.splice(i, 1); break;
+      case "add": m.push({ photos: [], pos: "center", date: "", place: "", big: "New Chapter", script: "", title: "", note: "" }); break;
+      case "rmphoto": m[i].photos.splice(Number(b.dataset.j), 1); break;
+    }
+    dirty = true; renderEditor();
+  });
+
+  let dirty = false, saving = false;
+  function setStatus(t) { const s = document.getElementById("edStatus"); if (s) s.textContent = t; }
+  function updateBar() {
+    const bytes = new Blob([buildHTML(draft)]).size, mb = (bytes / 1048576).toFixed(1), over = bytes > MAX_BYTES * 0.95;
+    edBar.innerHTML = `<span class="size ${over ? "over" : ""}">ขนาดสมุด ${mb} / 16 MB${over ? " · เต็มแล้ว ลบหรือเปลี่ยนรูปบางรูป" : ""}</span>
+      ${downloadsNs ? `<button class="sbtn" data-bar="download">ดาวน์โหลดไฟล์</button>` : ""}
+      <button class="sbtn" data-bar="preview">ดูตัวอย่าง</button>
+      <button class="sbtn primary" data-bar="save" ${over || saving ? "disabled" : ""}>${saving ? "กำลังบันทึก…" : "บันทึกสมุด"}</button>
+      <span class="status" id="edStatus"></span>`;
+  }
+  edBar.addEventListener("click", async e => {
+    const b = e.target.closest("[data-bar]"); if (!b) return;
+    if (b.dataset.bar === "preview") { data = JSON.parse(JSON.stringify(draft)); unlocked = true; closeEditor(true); render(1); return; }
+    if (b.dataset.bar === "download") {
+      try { await downloadsNs.save({ filename: "our-story.html", data: buildHTML(draft) }); }
+      catch (err) { if (err && err.code === "unavailable") { downloadsNs = null; updateBar(); } }
+      return;
+    }
+    if (b.dataset.bar === "save") {
+      if (!/^\d{4}$/.test(draft.code)) { setStatus("รหัสต้องเป็นตัวเลข 4 หลัก"); return; }
+      saving = true; updateBar(); setStatus("กำลังบันทึก หน้าจะโหลดใหม่เมื่อเสร็จ");
+      try { await artifactNs.publish(buildHTML(draft)); }
+      catch (err) {
+        saving = false; updateBar();
+        const code = err && err.code;
+        if (code === "conflict") setStatus("มีคนบันทึกสมุดเวอร์ชันใหม่ไปก่อน หน้ากำลังโหลดใหม่");
+        else if (code === "not_writer" || code === "not_granted" || code === "consent_required") { setStatus("หน้านี้เปิดแบบอ่านอย่างเดียว บันทึกไม่ได้"); }
+        else if (code === "too_large") setStatus("สมุดใหญ่เกิน 16 MB ลบหรือเปลี่ยนรูปบางรูปก่อน");
+        else if (code === "rate_limited") setStatus("บันทึกถี่เกินไป รอสักครู่แล้วลองใหม่");
+        else setStatus("บันทึกไม่สำเร็จ ลองใหม่อีกครั้ง");
+      }
+    }
+  });
+
+  function openEditor() {
+    if (!draft) draft = JSON.parse(JSON.stringify(data));
+    renderEditor(); editor.hidden = false; edBar.hidden = false; editor.scrollTop = 0;
+  }
+  function closeEditor() { editor.hidden = true; edBar.hidden = true; }
+  document.getElementById("editBtn").onclick = openEditor;
+  window.addEventListener("beforeunload", e => { if (dirty && !saving) { e.preventDefault(); e.returnValue = ""; } });
+
+  /* ---------- capabilities ---------- */
+  (async () => {
+    if (!window.claude || !window.claude.use) return;
+    try {
+      const [user, art, dl] = await Promise.all([window.claude.use("user"), window.claude.use("artifact"), window.claude.use("downloads")]);
+      const canEdit = user ? await user.canEdit() : false;
+      if (art && canEdit) {
+        artifactNs = art; downloadsNs = dl;
+        document.getElementById("editBtn").hidden = false;
+      }
+    } catch (_) { /* read-only view */ }
+  })();
+
+  render(0);
+})();
+</script>
+</body>
+</html>
