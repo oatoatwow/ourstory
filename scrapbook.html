@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#d9cfbd">
-<title>Our Story · since 22.11.2015</title>
+<title>Our Story · since 22.11.2014</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Abril+Fatface&family=Special+Elite&family=Caveat:wght@600;700&family=Sriracha&family=Kanit:wght@500;700&family=Sarabun:wght@400;500&display=swap" rel="stylesheet">
@@ -516,16 +516,16 @@ const DOODLES={
 const doodle=(k,style,color="var(--red)")=>`<span class="doodle" style="${style};color:${color}" aria-hidden="true">${DOODLES[k]}</span>`;
 
 /* dates */
-const SINCE=new Date(2015,10,22);
+const SINCE=new Date(2014,10,22);
 const fmt=n=>n.toLocaleString("en-US");
 const today=()=>{const d=new Date();return new Date(d.getFullYear(),d.getMonth(),d.getDate());};
 const daysTogether=()=>Math.round((today()-SINCE)/864e5);
-function yearsTogether(){const d=today();let y=d.getFullYear()-2015;if(d<new Date(d.getFullYear(),10,22))y--;return y;}
+function yearsTogether(){const d=today();let y=d.getFullYear()-2014;if(d<new Date(d.getFullYear(),10,22))y--;return y;}
 function nextText(){const d=today();let ann=new Date(d.getFullYear(),10,22);
-  if(+ann===+d)return `วันนี้ครบรอบ ${d.getFullYear()-2015} ปี ♥`;
+  if(+ann===+d)return `วันนี้ครบรอบ ${d.getFullYear()-2014} ปี ♥`;
   if(ann<d)ann=new Date(d.getFullYear()+1,10,22);
-  return `อีก ${Math.round((ann-d)/864e5)} วัน ครบ ${ann.getFullYear()-2015} ปี`;}
-function annNumber(){const d=today();let ann=new Date(d.getFullYear(),10,22);if(ann<d)ann=new Date(d.getFullYear()+1,10,22);return (ann-d)/864e5<=60?ann.getFullYear()-2015:yearsTogether();}
+  return `อีก ${Math.round((ann-d)/864e5)} วัน ครบ ${ann.getFullYear()-2014} ปี`;}
+function annNumber(){const d=today();let ann=new Date(d.getFullYear(),10,22);if(ann<d)ann=new Date(d.getFullYear()+1,10,22);return (ann-d)/864e5<=60?ann.getFullYear()-2014:yearsTogether();}
 
 /* data */
 const order=spreads.flatMap(s=>s.entries.map(([id,cap])=>({id,cap,title:s.title})));
@@ -593,7 +593,7 @@ function pageHTML(i){
     <div class="cover-title">${ransom("OUR STORY",1)}</div>
     ${doodle("heart","width:12cqw;height:11cqw;left:58%;top:max(46%,calc(7% + 40cqh));transform:rotate(14deg)","var(--pink)")}
     ${doodle("star","width:7cqw;height:7cqw;left:7%;top:max(50%,calc(7% + 44cqh))","var(--taxi)")}
-    <div class="cover-meta"><span class="ticket">SINCE 22.11.2015<small>คบกันมา ${fmt(daysTogether())} วัน</small></span><button class="big-btn" data-go="1">เปิดสมุด</button></div></section>`;
+    <div class="cover-meta"><span class="ticket">SINCE 22.11.2014<small>คบกันมา ${fmt(daysTogether())} วัน</small></span><button class="big-btn" data-go="1">เปิดสมุด</button></div></section>`;
   if(p.kind==="hero"){
     const H=[[38,"left:4%;top:4%;width:36cqw",-6],[23,"right:4%;top:3%;width:34cqw",5],[6,"left:30%;top:1%;width:24cqw",3],
       [8,"left:3%;bottom:15%;width:32cqw",4],[36,"right:4%;bottom:14%;width:33cqw",-5],[30,"left:34%;bottom:20%;width:24cqw",-2]];
@@ -601,7 +601,7 @@ function pageHTML(i){
       +H.map(([id,pos,r],n)=>snap([id,""],{w:"100%",mh:"30cqh",r,tape:n%2?"top":"both",style:pos+";max-width:none"}).replace('<span class="cap"></span>','')).join("")
       +`<div class="hero-title"><div>${ransom("OUR STORY")}</div><div class="th">คบกันมา ${fmt(daysTogether())} วัน</div></div>`
       +doodle("heart","width:13cqw;height:12cqw;left:58%;top:30%;transform:rotate(-12deg)")
-      +`<div class="hero-meta"><span class="ticket">SINCE 22.11.2015<small>39 รูป · 7 บท</small></span><span class="labeltape">${nextText()}</span></div>`
+      +`<div class="hero-meta"><span class="ticket">SINCE 22.11.2014<small>39 รูป · 7 บท</small></span><span class="labeltape">${nextText()}</span></div>`
       +`<span class="hint">พลิกหน้าต่อ →</span></section>`;
   }
   if(p.kind==="opener"){
@@ -619,7 +619,7 @@ function pageHTML(i){
   }
   if(p.kind==="finale") return `<section class="page dark finale" data-i="${i}"><span class="run">THE END · FOR NOW</span>
     ${ransom("TO BE CONTINUED",5)}
-    <p class="msg">สุขสันต์วันครบรอบ ${annNumber()} ปีนะ<small>22.11.2015 · ${fmt(daysTogether())} วันที่ผ่านมาด้วยกัน</small></p>
+    <p class="msg">สุขสันต์วันครบรอบ ${annNumber()} ปีนะ<small>22.11.2014 · ${fmt(daysTogether())} วันที่ผ่านมาด้วยกัน</small></p>
     <div class="mail"><div class="body"><div class="stampy">BOS</div><p class="to">ถึงเธอ<br>คลิปวันเกิดที่ Boston</p></div><button class="big-btn" data-clip>เปิดดูคลิป ▶</button></div>${pno}</section>`;
   if(p.kind==="clip") return `<section class="page dark clip" data-i="${i}"><span class="run">BIRTHDAY IN BOSTON</span>
     ${ransom("BIRTHDAY IN BOSTON",2)}
